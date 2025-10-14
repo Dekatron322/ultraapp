@@ -343,7 +343,7 @@ function CoinsSection() {
 function HeroButtons({ svgVariants, onDownloadClick }: { svgVariants: any; onDownloadClick: () => void }) {
   return (
     <motion.div
-      className="mt-8 flex gap-4 max-md:mb-10 max-sm:flex-col max-sm:items-center"
+      className="mb-20 mt-8 flex gap-4 max-md:mb-10 max-sm:flex-col max-sm:items-center"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.6 }}

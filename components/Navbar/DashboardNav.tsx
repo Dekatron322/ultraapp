@@ -14,7 +14,6 @@ import CloseIcon from "@mui/icons-material/Close"
 const DashboardNav = () => {
   const { theme, setTheme, systemTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const [loading, setLoading] = useState(true)
   const [currentTime, setCurrentTime] = useState(new Date())
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -22,7 +21,6 @@ const DashboardNav = () => {
   // Ensure we only render after component is mounted to avoid hydration mismatch
   useEffect(() => {
     setMounted(true)
-    setTimeout(() => setLoading(false), 3000)
 
     const intervalId = setInterval(() => {
       setCurrentTime(new Date())
@@ -114,37 +112,9 @@ const DashboardNav = () => {
     },
   }
 
-  // Don't render theme-dependent content until mounted on client
+  // Don't render anything until mounted on client
   if (!mounted) {
-    return (
-      <nav className="z-150 fixed left-0 right-0 top-0 z-20 flex justify-center py-2 backdrop-blur">
-        <div className="z-50 flex w-full items-center justify-between backdrop-blur max-sm:flex-row max-sm:px-4 md:max-w-[1240px]">
-          {/* Logo placeholder */}
-          <div className="h-10 w-32 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-
-          {/* Desktop Navigation Links placeholder */}
-          <div className="flex items-center gap-5 max-md:hidden">
-            <div className="flex items-center justify-center gap-10 rounded-full">
-              {navLinks.map((link) => (
-                <div key={link.name} className="h-6 w-16 rounded bg-gray-300 dark:bg-gray-600"></div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop Right Section placeholder */}
-          <div className="flex items-center gap-5 max-md:hidden">
-            <div className="h-12 w-20 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-            <div className="h-12 w-32 rounded-lg bg-gray-300 dark:bg-gray-600"></div>
-          </div>
-
-          {/* Mobile Menu Button placeholder */}
-          <div className="hidden max-md:flex max-md:items-center max-md:gap-3">
-            <div className="h-9 w-14 rounded-full bg-gray-300 dark:bg-gray-600"></div>
-            <div className="h-10 w-10 rounded-lg bg-gray-300 dark:bg-gray-600"></div>
-          </div>
-        </div>
-      </nav>
-    )
+    return null
   }
 
   return (

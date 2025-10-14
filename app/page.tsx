@@ -2,14 +2,31 @@
 import { useEffect, useState } from "react"
 import DashboardNav from "components/Navbar/DashboardNav"
 import { useTheme } from "next-themes"
+import dynamic from "next/dynamic"
 import HeroSection from "components/Landing/HeroSection/HeroSection"
-import AboutSection from "components/Landing/AboutSection/AboutSection"
-import FeatureSection from "components/Landing/FeatureSection/FeatureSection"
-import ComingSoon from "components/Landing/ComingSoon/ComingSoon"
-import TestimonialSection from "components/Landing/TestimonialSection/TestimonialSection"
-import BlogSection from "components/Landing/BlogSection/BlogSection"
-import DownloadSection from "components/Landing/DownloadSection/DownloadSection"
-import Footer from "components/Footer/Footer"
+
+// Lazy-load below-the-fold sections to cut initial bundle size
+const AboutSection = dynamic(() => import("components/Landing/AboutSection/AboutSection"), {
+  loading: () => null,
+})
+const FeatureSection = dynamic(() => import("components/Landing/FeatureSection/FeatureSection"), {
+  loading: () => null,
+})
+const ComingSoon = dynamic(() => import("components/Landing/ComingSoon/ComingSoon"), {
+  loading: () => null,
+})
+const TestimonialSection = dynamic(
+  () => import("components/Landing/TestimonialSection/TestimonialSection"),
+  { loading: () => null }
+)
+const BlogSection = dynamic(() => import("components/Landing/BlogSection/BlogSection"), {
+  loading: () => null,
+})
+const DownloadSection = dynamic(
+  () => import("components/Landing/DownloadSection/DownloadSection"),
+  { loading: () => null }
+)
+const Footer = dynamic(() => import("components/Footer/Footer"), { loading: () => null })
 
 export default function Dashboard() {
   const { theme, resolvedTheme } = useTheme()

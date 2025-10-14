@@ -9,7 +9,12 @@ import LogoIconDark from "public/icons/logo-icon-dark"
 import { useState } from "react"
 import Image from "next/image"
 import StarIcon from "public/icons/star"
-import DownloadAppModal from "components/DownloadAppModal"
+import dynamic from "next/dynamic"
+
+const DownloadAppModal = dynamic(() => import("components/DownloadAppModal"), {
+  ssr: false,
+  loading: () => null,
+})
 
 interface TestimonialSectionProps {
   currentTheme: string | undefined

@@ -6,7 +6,12 @@ import Link from "next/link"
 import Image from "next/image"
 import AppleIcon from "public/icons/Apple"
 import GooglePlayIcon from "public/icons/GooglePlay"
-import DownloadAppModal from "components/DownloadAppModal"
+import dynamic from "next/dynamic"
+
+const DownloadAppModal = dynamic(() => import("components/DownloadAppModal"), {
+  ssr: false,
+  loading: () => null,
+})
 
 interface HeroSectionProps {
   mounted: boolean
@@ -401,6 +406,9 @@ function HeroImages() {
           src="/img2.png"
           alt="decorative line"
           className="w-[336px] max-w-full max-md:hidden"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           initial={{ opacity: 0, x: -50, rotate: -10 }}
           animate={{ opacity: 1, x: 0, rotate: 0 }}
           transition={{
@@ -419,6 +427,9 @@ function HeroImages() {
           src="/img3.png"
           alt="decorative line"
           className="mt-4 w-[336px] max-w-full max-md:hidden"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           initial={{ opacity: 0, y: 50, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
@@ -439,6 +450,9 @@ function HeroImages() {
         src="/img1.png"
         alt="decorative line"
         className="max-w-full max-md:px-4 md:w-[336px]"
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -459,6 +473,9 @@ function HeroImages() {
           src="/Swap.png"
           alt="decorative line"
           className="w-[336px] max-w-full max-md:hidden"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           initial={{ opacity: 0, x: 50, rotate: 10 }}
           animate={{ opacity: 1, x: 0, rotate: 0 }}
           transition={{
@@ -477,6 +494,9 @@ function HeroImages() {
           src="/img4.png"
           alt="decorative line"
           className="mt-4 w-[336px] max-w-full max-md:hidden"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           initial={{ opacity: 0, y: -50, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{

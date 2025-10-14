@@ -12,7 +12,19 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
       fullUrl: true,
     },
   },
-  experimental: { instrumentationHook: true },
+  experimental: {
+    instrumentationHook: true,
+    optimizePackageImports: ["lodash"],
+  },
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? { exclude: ["error", "warn"] }
+        : false,
+  },
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   rewrites() {
     return [
       { source: "/healthz", destination: "/api/health" },

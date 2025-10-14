@@ -16,8 +16,7 @@ const gilroy = localFont({
 
 export const metadata: Metadata = {
   title: "Ultra",
-  description:
-    "Ibrahim Muritala is a multidisciplinary software engineer (frontend heavy) with 5+ years of experience and a degree in physics.",
+  description: "Take Control of Your Finances - Beyond Banking, Into Crypto",
   icons: {
     icon: [
       {
@@ -66,13 +65,13 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Ibrahim Muritala",
+    title: "Ultra",
   },
   twitter: {
     card: "summary_large_image",
   },
   openGraph: {
-    url: "https://ibmuri.vercel.app/",
+    url: "https://ultraapp.vercel.app/",
     images: [
       {
         width: 1200,

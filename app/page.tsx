@@ -4,6 +4,7 @@ import DashboardNav from "components/Navbar/DashboardNav"
 import { useTheme } from "next-themes"
 import dynamic from "next/dynamic"
 import HeroSection from "components/Landing/HeroSection/HeroSection"
+import Preloader from "components/Preloader/Preloader"
 
 // Lazy-load below-the-fold sections to cut initial bundle size
 const AboutSection = dynamic(() => import("components/Landing/AboutSection/AboutSection"), {
@@ -31,16 +32,25 @@ const Footer = dynamic(() => import("components/Footer/Footer"), { loading: () =
 export default function Dashboard() {
   const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [isPageLoaded, setIsPageLoaded] = useState(false)
 
   // Use resolvedTheme to avoid hydration mismatch
   const currentTheme = resolvedTheme || theme
 
   useEffect(() => {
     setMounted(true)
+    const onLoad = () => setIsPageLoaded(true)
+    if (document.readyState === "complete") {
+      setIsPageLoaded(true)
+    } else {
+      window.addEventListener("load", onLoad)
+    }
+    return () => window.removeEventListener("load", onLoad)
   }, [])
 
   return (
     <>
+      <Preloader visible={!isPageLoaded} />
       <section className="flex size-full flex-col items-center justify-center md:mb-40">
         <DashboardNav />
 

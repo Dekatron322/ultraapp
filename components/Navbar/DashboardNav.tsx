@@ -10,6 +10,121 @@ import UltraLogoDark from "public/icons/ultra-logo-dark"
 import { usePathname } from "next/navigation"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
+import Image from "next/image"
+import AppleIcon from "public/icons/Apple"
+import GooglePlayIcon from "public/icons/GooglePlay"
+
+interface DownloadAppModalProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+const DownloadAppModal: React.FC<DownloadAppModalProps> = ({ isOpen, onClose }) => {
+  if (!isOpen) return null
+
+  // Smart URL that redirects based on platform
+  const smartDownloadUrl = "https://qr-code-sand-seven.vercel.app/"
+
+  // Direct URLs for the buttons
+  const appStoreUrl = "https://apps.apple.com/ng/app/ultra-app/id6450269232"
+  const playStoreUrl = "https://play.google.com/store/apps/details?id=com.ahmadhabib.ultraappfrontend"
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        transition={{ type: "spring", damping: 25 }}
+        className="relative w-full max-w-md rounded-xl bg-white p-8 shadow-2xl dark:bg-gray-900"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute right-6 top-6 flex size-8 items-center justify-center rounded-full p-1 text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800"
+        >
+          ×
+        </button>
+
+        <div className="mb-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Download Ultra App</h2>
+          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Scan the QR code to download our app</p>
+        </div>
+
+        <div className="flex flex-col items-center space-y-6">
+          {/* QR Code */}
+          <div className="flex items-center justify-center rounded-lg border-2 border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800">
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex size-48 items-center justify-center">
+                <Image
+                  src="/qr-code.png"
+                  alt="QR Code for Ultra App Download"
+                  width={192}
+                  height={192}
+                  className="size-full object-contain"
+                  onError={(e) => {
+                    // Fallback if QR code image doesn't exist
+                    const target = e.target as HTMLElement
+                    target.innerHTML = `
+                      <div class="flex size-full items-center justify-center bg-gray-100 dark:bg-gray-700 rounded">
+                        <div class="text-center">
+                          <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">QR Code</div>
+                          <div class="text-xs text-gray-400 dark:text-gray-500">Scan with your phone</div>
+                        </div>
+                      </div>
+                    `
+                  }}
+                />
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Scan with your phone camera to download</p>
+            </div>
+          </div>
+
+          <div className="flex gap-4 max-sm:flex-col">
+            <a
+              href={appStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-lg bg-black px-4 py-3 text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+            >
+              <AppleIcon />
+              <div className="text-left">
+                <div className="text-xs">Download on the</div>
+                <div className="text-sm font-semibold">App Store</div>
+              </div>
+            </a>
+
+            <a
+              href={playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-lg bg-black px-4 py-3 text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+            >
+              <GooglePlayIcon />
+              <div className="text-left">
+                <div className="text-xs">Get it on</div>
+                <div className="text-sm font-semibold">Google Play</div>
+              </div>
+            </a>
+          </div>
+
+          <div className="text-center">
+            <p className="text-xs text-gray-500 dark:text-gray-400">Available on iOS and Android devices</p>
+            <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">
+              The QR code will automatically detect your device
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
 
 const DashboardNav = () => {
   const { theme, setTheme, systemTheme } = useTheme()
@@ -17,6 +132,7 @@ const DashboardNav = () => {
   const [currentTime, setCurrentTime] = useState(new Date())
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
 
   // Ensure we only render after component is mounted to avoid hydration mismatch
   useEffect(() => {
@@ -39,6 +155,14 @@ const DashboardNav = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const openDownloadModal = () => {
+    setIsDownloadModalOpen(true)
+  }
+
+  const closeDownloadModal = () => {
+    setIsDownloadModalOpen(false)
   }
 
   const formatTime = (date: Date) => {
@@ -223,9 +347,8 @@ const DashboardNav = () => {
               whileHover="hover"
               whileTap="tap"
             >
-              <Link
-                href="#"
-                target="_blank"
+              <button
+                onClick={openDownloadModal}
                 className="button-style flex items-center gap-2 transition-all duration-300 group-hover:gap-3"
               >
                 <span>Get Started</span>
@@ -246,7 +369,7 @@ const DashboardNav = () => {
                     fill="currentColor"
                   />
                 </motion.svg>
-              </Link>
+              </button>
             </motion.div>
           </div>
 
@@ -343,12 +466,45 @@ const DashboardNav = () => {
                       </motion.div>
                     )
                   })}
+
+                  {/* Mobile Get Started Button */}
+                  <motion.div
+                    variants={mobileLinkVariants}
+                    transition={{ delay: navLinks.length * 0.1 }}
+                    className="pt-4"
+                  >
+                    <button
+                      onClick={() => {
+                        openDownloadModal()
+                        toggleMobileMenu()
+                      }}
+                      className="button-style flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 transition-all duration-300"
+                    >
+                      <span>Get Started</span>
+                      <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 17 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="transition-colors duration-300"
+                      >
+                        <path
+                          d="M9.1497 0.80204C9.26529 3.95101 13.2299 6.51557 16.1451 8.0308L16.1447 9.43036C13.2285 10.7142 9.37889 13.1647 9.37789 16.1971L7.27855 16.1978C7.16304 12.8156 10.6627 10.4818 13.1122 9.66462L0.049716 9.43565L0.0504065 7.33631L13.1129 7.56528C10.5473 6.86634 6.93261 4.18504 7.05036 0.80273L9.1497 0.80204Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </button>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
+
+      {/* Download App Modal */}
+      <DownloadAppModal isOpen={isDownloadModalOpen} onClose={closeDownloadModal} />
     </>
   )
 }

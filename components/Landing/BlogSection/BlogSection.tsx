@@ -131,8 +131,7 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
         whileTap="tap"
       >
         <Link
-          href="#"
-          target="_blank"
+          href="/blog"
           className="button-style  flex items-center gap-2 transition-all duration-300 group-hover:gap-3 max-md:text-sm"
         >
           <span>Learn More</span>

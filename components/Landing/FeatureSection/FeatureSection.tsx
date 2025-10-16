@@ -154,8 +154,7 @@ const FeatureSection = ({ currentTheme }: FeatureSectionProps) => {
         whileTap="tap"
       >
         <Link
-          href="#"
-          target="_blank"
+          href="/feature"
           className="button-style flex items-center gap-2 transition-all duration-300 group-hover:gap-3"
         >
           <span>Learn More</span>

@@ -78,22 +78,34 @@ const Footer = () => {
             <h3 className="mb-4 font-semibold">Follow Us</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="https://web.facebook.com/myultraapp"
+                  target="_blank"
+                  className="transition-colors hover:text-white"
+                >
                   Facebook
                 </Link>
               </li>
               <li>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="https://www.instagram.com/myultraapp_"
+                  target="_blank"
+                  className="transition-colors hover:text-white"
+                >
                   Instagram
                 </Link>
               </li>
               <li>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link
+                  href="https://www.linkedin.com/company/myultraapp/"
+                  target="_blank"
+                  className="transition-colors hover:text-white"
+                >
                   Linkedin
                 </Link>
               </li>
               <li>
-                <Link href="#" className="transition-colors hover:text-white">
+                <Link href="https://x.com/myultraapp" target="_blank" className="transition-colors hover:text-white">
                   X
                 </Link>
               </li>
@@ -105,12 +117,12 @@ const Footer = () => {
             <h3 className="mb-4 font-semibold">Legal</h3>
             <ul className="mb-6 space-y-2 text-gray-400">
               <li>
-                <Link href="/terms" className="transition-colors hover:text-white">
+                <Link href="/terms-and-conditions" className="transition-colors hover:text-white">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="transition-colors hover:text-white">
+                <Link href="/terms-and-conditions" className="transition-colors hover:text-white">
                   Privacy policy
                 </Link>
               </li>

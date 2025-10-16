@@ -16,7 +16,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
   const [showCoins, setShowCoins] = useState(false)
   const animationStarted = useRef(false)
 
-  const fullText = "Discover opportunities to growth  and success"
+  const fullText = "Discover our last Articles"
   const words = fullText.split(" ")
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
   const renderAnimatedText = () => {
     return words.map((word, wordIndex) => {
       const letters = word.split("")
-      const isCryptoWord = word === "success"
+      const isCryptoWord = word === "Articles"
 
       const wordElement = (
         <span key={`word-${wordIndex}`} className={`word ${isCryptoWord ? "crypto-text" : ""}`}>
@@ -137,26 +137,8 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Enjoy rapid transfers with Ultra App. Swap crypto to Naira, pay bills, make Ultra-to-Ultra transfers, and use
-          virtual debit cards—limitless transactions await!
+          Discover the latest insights, trends, and guides in the world of cryptocurrency and blockchain technology.
         </motion.p>
-
-        <div className="subscribe-style mx-auto mt-10 w-full max-w-[350px] overflow-hidden rounded-lg px-3 py-2">
-          <form className="flex w-full flex-row flex-nowrap items-center gap-2">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="min-w-0 flex-1 bg-transparent text-white placeholder-gray-400 transition-colors focus:outline-none"
-              required
-            />
-            <button
-              type="submit"
-              className="shrink-0 whitespace-nowrap rounded-lg bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700 sm:w-auto"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
       </div>
 
       <TextAnimationStyles />

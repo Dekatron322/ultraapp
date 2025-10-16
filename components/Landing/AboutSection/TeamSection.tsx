@@ -63,12 +63,12 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
             </motion.h2>
             <div className=" mt-10 grid  gap-6 md:grid-cols-2">
               <div className="features-cards flex-col rounded-lg border p-6">
-                <img src="/teams/team1.png" alt="Lending" className="w-full" />
+                <img src="/teams/ceo.jpeg" alt="Lending" className="h-[300px] w-[360px] rounded-lg object-cover" />
 
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <motion.p className="mt-2 text-xl" variants={fadeInUp}>
-                      Anna Warie
+                      ThankGod Izime
                     </motion.p>
                     <motion.p className="smaller-text mt-1" variants={fadeInUp}>
                       CEO & Founder
@@ -103,7 +103,7 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
               </div>
             </div>
             <div className="features-cards mt-6 flex-col rounded-lg border p-6">
-              <img src="/teams/team3.png" alt="Lending" className="w-full" />
+              <img src="/teams/team.jpeg" alt="Lending" className="h-[400px] w-[800px] rounded-lg object-cover" />
 
               <div className="flex items-center justify-between gap-2">
                 <div>

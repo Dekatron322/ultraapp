@@ -4,8 +4,9 @@ import DashboardNav from "components/Navbar/DashboardNav"
 import { useTheme } from "next-themes"
 import Footer from "components/Footer/Footer"
 import GetUltraApp from "components/Landing/ComingSoon/GetUltraApp"
-import HeroSection from "components/TermSections/HeroSection"
+
 import TermsSection from "components/TermSections/TermsSection"
+import HeroSection from "components/TermSections/TermsHeroSection"
 
 export default function Dashboard() {
   const { theme, resolvedTheme } = useTheme()

@@ -72,9 +72,13 @@ export default function DownloadSection({ currentTheme }: DownloadSectionProps) 
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <button className="flex items-center rounded-md bg-[#155DFC] px-6 py-2 text-white">
+                <Link
+                  href="https://t.me/ultraappofficialcommunity"
+                  target="_blank"
+                  className="flex items-center rounded-md bg-[#155DFC] px-6 py-2 text-white"
+                >
                   Join the Community
-                </button>
+                </Link>
                 <button
                   onClick={handleDownloadClick}
                   className="download-style flex items-center gap-2 border border-[#333E4F] transition-all duration-300 group-hover:gap-3"

@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 import Image from "next/image"
 import AppleIcon from "public/icons/Apple"
 import GooglePlayIcon from "public/icons/GooglePlay"
@@ -16,7 +17,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
   const [showCoins, setShowCoins] = useState(false)
   const animationStarted = useRef(false)
 
-  const fullText = "Discover opportunities to growth  and success"
+  const fullText = "Terms & Conditions"
   const words = fullText.split(" ")
 
   useEffect(() => {
@@ -117,7 +118,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
 
   return (
     <motion.div
-      className="relative flex w-full  flex-col items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat max-sm:pt-16"
+      className="relative flex  w-full flex-col items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: getBackgroundImage(),
       }}
@@ -127,7 +128,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
     >
       <div className="absolute inset-0 bg-white/5 dark:bg-black/5"></div>
 
-      <div className="large-text relative z-10 mx-auto mt-10 flex w-full max-w-6xl flex-col items-center justify-center text-center max-md:px-4 md:mt-48 md:px-10">
+      <div className="large-text relative z-10 mx-auto mt-10 flex w-full max-w-6xl flex-col items-center justify-center text-center max-md:px-4 max-md:py-16 md:my-44 md:px-10">
         <motion.div
           className="text-5xl font-bold leading-tight max-sm:text-4xl md:text-6xl lg:text-7xl"
           initial={{ opacity: 0, y: 30 }}
@@ -143,11 +144,8 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Unlock your potential with curated career opportunities that connect you to the right roles and skills,
-          turning ambition into achievement.
+          The rules of the road for using our platform, simply explained.
         </motion.p>
-
-        <HeroButtons svgVariants={svgVariants} onDownloadClick={() => setIsDownloadModalOpen(true)} />
       </div>
 
       <TextAnimationStyles />

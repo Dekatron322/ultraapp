@@ -63,7 +63,7 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
             </motion.h2>
             <div className=" mt-10 grid  gap-6 md:grid-cols-2">
               <div className="features-cards flex-col rounded-lg border p-6">
-                <img src="/teams/ceo.jpeg" alt="Lending" className="h-[300px] w-[360px] rounded-lg object-cover" />
+                <img src="/teams/ceo.jpeg" alt="Lending" className="h-[400px] w-[400px] rounded-lg object-cover" />
 
                 <div className="flex items-center justify-between gap-2">
                   <div>
@@ -83,15 +83,15 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
               </div>
 
               <div className="features-cards flex-col rounded-lg border p-6">
-                <img src="/teams/team2.png" alt="Lending" className="w-full" />
+                <img src="/teams/team.jpeg" alt="Lending" className="h-[400px] w-[400px] rounded-lg object-cover" />
 
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <motion.p className="mt-2 text-xl" variants={fadeInUp}>
-                      Anna Warie
+                      Techinical Team
                     </motion.p>
                     <motion.p className="smaller-text mt-1" variants={fadeInUp}>
-                      CEO & Founder
+                      Ultra App
                     </motion.p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -102,7 +102,7 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
                 </div>
               </div>
             </div>
-            <div className="features-cards mt-6 flex-col rounded-lg border p-6">
+            {/* <div className="features-cards mt-6 flex-col rounded-lg border p-6">
               <img src="/teams/team.jpeg" alt="Lending" className="h-[400px] w-[800px] rounded-lg object-cover" />
 
               <div className="flex items-center justify-between gap-2">
@@ -120,7 +120,7 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
                   <FaXTwitter className="size-5" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

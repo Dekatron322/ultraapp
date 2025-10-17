@@ -17,7 +17,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
   const [showCoins, setShowCoins] = useState(false)
   const animationStarted = useRef(false)
 
-  const fullText = "Contact Us"
+  const fullText = "Privacy Policy"
   const words = fullText.split(" ")
 
   useEffect(() => {
@@ -144,7 +144,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Need Any Help? Send us a message using the form below and we&apos;ll get back to you promptly!
+          The rules of the road for using our platform, simply explained.
         </motion.p>
       </div>
 

@@ -181,7 +181,7 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
           className="smaller-text mx-auto max-w-2xl text-xl leading-relaxed max-md:text-base"
           variants={fadeInUp}
         >
-          Need Any Help? Send us a message using the form below and we'll get back to you promptly!
+          Need Any Help? Send us a message using the form below and we&apos;ll get back to you promptly!
         </motion.p>
       </motion.div>
 

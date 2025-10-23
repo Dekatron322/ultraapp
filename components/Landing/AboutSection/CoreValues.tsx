@@ -86,7 +86,7 @@ export default function CoreValues({ currentTheme }: CoreValuesProps) {
                   </motion.p>
                 </div>
               </div>
-              <img src="/Margin copy.png" alt="" className="max-md:hidden" />
+              <img src="/Container.svg" alt="" className="max-md:hidden" />
               <div className="flex flex-col max-sm:gap-4 md:gap-14">
                 <div className="features-cards flex-col rounded-lg p-6">
                   <div className="flex items-center gap-4">

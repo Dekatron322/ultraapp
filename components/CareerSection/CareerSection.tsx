@@ -28,7 +28,7 @@ const CareerSection = () => {
       location: "San Francisco, CA",
       type: "Full-time",
       description:
-        "Lorem ipsum dolor sit amet conse cte tur euismod augue fermentum aliquam velit in nunc amet tempus tortor non.",
+        "Design, build, and ship features across our web platform. Collaborate with product and design, write well-tested code, and contribute to architecture decisions across React/Next.js frontends and Node.js services.",
       requirements: ["5+ years experience", "React/Next.js", "TypeScript", "Node.js"],
     },
     {
@@ -38,7 +38,7 @@ const CareerSection = () => {
       location: "Remote",
       type: "Full-time",
       description:
-        "Lorem ipsum dolor sit amet conse cte tur euismod augue fermentum aliquam velit in nunc amet tempus tortor non.",
+        "Lead end-to-end product design from discovery to polished UI. Conduct research, create flows and prototypes in Figma, and partner closely with PM/Engineering to ship intuitive, accessible experiences.",
       requirements: ["3+ years experience", "Figma", "User Research", "Prototyping"],
     },
     {
@@ -48,7 +48,7 @@ const CareerSection = () => {
       location: "New York, NY",
       type: "Full-time",
       description:
-        "Lorem ipsum dolor sit amet conse cte tur euismod augue fermentum aliquam velit in nunc amet tempus tortor non.",
+        "Develop analytics and ML solutions that power product decisions. Build data models and pipelines, run experiments, and translate insights into clear recommendations for cross-functional teams.",
       requirements: ["4+ years experience", "Python", "Machine Learning", "SQL"],
     },
     {
@@ -58,7 +58,7 @@ const CareerSection = () => {
       location: "Austin, TX",
       type: "Full-time",
       description:
-        "Lorem ipsum dolor sit amet conse cte tur euismod augue fermentum aliquam velit in nunc amet tempus tortor non.",
+        "Own CI/CD and cloud infrastructure. Automate deployments, monitoring, and scaling; improve reliability, security, and cost efficiency across our Kubernetes/Docker environments on AWS/Azure.",
       requirements: ["4+ years experience", "AWS/Azure", "Docker", "Kubernetes"],
     },
     {
@@ -68,7 +68,7 @@ const CareerSection = () => {
       location: "Remote",
       type: "Contract",
       description:
-        "Lorem ipsum dolor sit amet conse cte tur euismod augue fermentum aliquam velit in nunc amet tempus tortor non.",
+        "Plan and run user studies, interviews, and usability tests. Synthesize findings into actionable insights and partner with design and product to inform roadmaps and measure experience quality.",
       requirements: ["2+ years experience", "User Testing", "Analytics", "Qualitative Research"],
     },
     {
@@ -78,7 +78,7 @@ const CareerSection = () => {
       location: "Remote",
       type: "Full-time",
       description:
-        "Lorem ipsum dolor sit amet conse cte tur euismod augue fermentum aliquam velit in nunc amet tempus tortor non.",
+        "Build responsive, accessible interfaces in React. Optimize performance, integrate APIs, maintain our component library, and collaborate with designers to deliver pixel-perfect user experiences.",
       requirements: ["3+ years experience", "JavaScript", "React", "CSS"],
     },
   ]

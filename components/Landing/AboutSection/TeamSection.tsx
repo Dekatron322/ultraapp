@@ -75,7 +75,7 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
                       ThankGod Izime
                     </motion.p>
                     <motion.p className="smaller-text mt-1" variants={fadeInUp}>
-                      CEO & Founder
+                      CEO & Co-Founder
                     </motion.p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -96,10 +96,10 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <motion.p className="mt-2 text-xl" variants={fadeInUp}>
-                      Senior Software Engineer
+                      Emmanuel Chijioke
                     </motion.p>
                     <motion.p className="smaller-text mt-1" variants={fadeInUp}>
-                      Ultra App
+                      CTO & Co-Founder
                     </motion.p>
                   </div>
                   <div className="flex items-center gap-2">

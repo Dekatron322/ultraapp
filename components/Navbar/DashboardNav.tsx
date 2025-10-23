@@ -247,7 +247,7 @@ const DashboardNav = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ease: "easeOut", duration: 1 }}
-        className="z-150 fixed left-0 right-0 top-0 z-20 flex justify-center py-2 backdrop-blur"
+        className="fixed left-0 right-0 top-0 z-50  flex justify-center py-2 backdrop-blur"
       >
         <div className="z-50 flex w-full items-center justify-between backdrop-blur max-sm:flex-row max-sm:px-4 md:max-w-[1240px]">
           {/* Logo */}

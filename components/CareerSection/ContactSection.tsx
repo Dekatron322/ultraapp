@@ -128,8 +128,8 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
         </svg>
       ),
       title: "Email Us",
-      content: "hello@example.com",
-      link: "mailto:hello@example.com",
+      content: "info@ultraapp.co",
+      link: "mailto:info@ultraapp.com",
     },
     {
       icon: (
@@ -143,25 +143,25 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
         </svg>
       ),
       title: "Call Us",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      content: "+234 703 551 8215",
+      link: "tel:+2347035518215",
     },
-    {
-      icon: (
-        <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-          />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-      title: "Visit Us",
-      content: "123 Business Ave, Suite 100\nNew York, NY 10001",
-      link: "https://maps.google.com",
-    },
+    // {
+    //   icon: (
+    //     <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    //       <path
+    //         strokeLinecap="round"
+    //         strokeLinejoin="round"
+    //         strokeWidth={2}
+    //         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+    //       />
+    //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    //     </svg>
+    //   ),
+    //   title: "Visit Us",
+    //   content: "123 Business Ave, Suite 100\nNew York, NY 10001",
+    //   link: "https://maps.google.com",
+    // },
   ]
 
   return (
@@ -230,9 +230,13 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
             <h4 className="large-text mb-4 text-lg font-semibold">Follow Us</h4>
             <div className="flex space-x-4">
               {[
-                { name: "Twitter", icon: <FaXTwitter />, link: "#" },
-                { name: "LinkedIn", icon: <FaLinkedin />, link: "#" },
-                { name: "Instagram", icon: <AiFillInstagram />, link: "#" },
+                { name: "Twitter", icon: <FaXTwitter />, link: "https://x.com/getultraapp?s=21" },
+                { name: "LinkedIn", icon: <FaLinkedin />, link: "https://www.linkedin.com/company/myultraapp/" },
+                {
+                  name: "Instagram",
+                  icon: <AiFillInstagram />,
+                  link: "https://www.instagram.com/getultraapp?igsh=M203ZjN2MnE0OXM%3D&utm_source=qr",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}

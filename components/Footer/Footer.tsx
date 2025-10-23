@@ -79,7 +79,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link
-                  href="https://web.facebook.com/myultraapp"
+                  href="https://www.facebook.com/share/1Cig1ggxTR/?mibextid=wwXIfr"
                   target="_blank"
                   className="transition-colors hover:text-white"
                 >
@@ -88,7 +88,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="https://www.instagram.com/myultraapp_"
+                  href="https://www.instagram.com/getultraapp?igsh=M203ZjN2MnE0OXM%3D&utm_source=qr"
                   target="_blank"
                   className="transition-colors hover:text-white"
                 >
@@ -105,7 +105,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="https://x.com/myultraapp" target="_blank" className="transition-colors hover:text-white">
+                <Link
+                  href="https://x.com/getultraapp?s=21"
+                  target="_blank"
+                  className="transition-colors hover:text-white"
+                >
                   X
                 </Link>
               </li>

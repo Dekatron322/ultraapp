@@ -147,8 +147,8 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Enjoy rapid transfers with Ultra App. Swap crypto to Naira, pay bills, make Ultra-to-Ultra transfers, and use
-          virtual debit cards—limitless transactions await!
+          Buy, sell and swap over 20 cryptocurrencies with easy, make instant transfers, pay bills, and explore Web3 all
+          in one secure, easy-to-use app.
         </motion.p>
 
         <HeroButtons svgVariants={svgVariants} onDownloadClick={() => setIsDownloadModalOpen(true)} />

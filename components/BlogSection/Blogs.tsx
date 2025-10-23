@@ -55,7 +55,7 @@ export default function Blogs({ currentTheme }: BlogsProps) {
       date: "2024-01-15",
       readTime: "5 min read",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Hac faucibus elit mi viverra lectus nunc a elit. In enim in aliquam enim amet elit.",
+        "A beginner-friendly guide to crypto: what it is, why it matters, and how to safely get started with digital currencies.",
       image: "/blog-light.png",
       tags: ["Crypto", "Beginner", "Guide"],
     },

@@ -120,10 +120,10 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
               <div className="flex items-center justify-between gap-2">
                 <div>
                   <motion.p className="mt-2 text-xl" variants={fadeInUp}>
-                    Anna Warie
+                    Founding Team
                   </motion.p>
                   <motion.p className="smaller-text mt-1" variants={fadeInUp}>
-                    CEO & Founder
+                    UltraApp
                   </motion.p>
                 </div>
                 <div className="flex items-center gap-2">

@@ -20,6 +20,30 @@ interface TestimonialSectionProps {
   currentTheme: string | undefined
 }
 
+// Array of random names
+const randomNames = [
+  "Sarah Johnson",
+  "Michael Chen",
+  "Emily Rodriguez",
+  "David Thompson",
+  "Jessica Williams",
+  "Kevin Martinez",
+  "Amanda Wilson",
+  "Christopher Brown",
+  "Olivia Davis",
+  "Daniel Garcia",
+  "Sophia Miller",
+  "James Anderson",
+  "Isabella Taylor",
+  "Matthew Moore",
+  "Emma Jackson",
+]
+
+// Function to get a random name
+const getRandomName = () => {
+  return randomNames[Math.floor(Math.random() * randomNames.length)]
+}
+
 export default function TestimonialSection({ currentTheme }: TestimonialSectionProps) {
   const [isPhonesHovered, setIsPhonesHovered] = useState(false)
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
@@ -118,7 +142,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -130,9 +154,9 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  I love the innovative features UltraApp offers. From cryptocurrency support to the ability to connect
+                  with decentralized apps, it&apos;s a wallet that keeps up with the latest trends in financial
+                  technology.
                 </motion.p>
               </motion.div>
 
@@ -146,7 +170,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -158,9 +182,10 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  UltraApp has streamlined our business operations significantly. We can now accept digital payments, As
+                  a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, track my
+                  spending, and even set aside money for future goals. The user interface is super intuitive, and the
+                  customer support is always there to help.
                 </motion.p>
               </motion.div>
 
@@ -174,7 +199,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -186,38 +211,9 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
-                </motion.p>
-              </motion.div>
-
-              {/* Set 2 (duplicate for seamless scroll) */}
-              <motion.div className="border-style w-full flex-col gap-2 rounded-2xl border p-4">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/icons/avatar.png"
-                    alt="More"
-                    width={64}
-                    height={64}
-                    className="max-md:h-10 max-md:w-10"
-                  />
-                  <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
-                    <div className="flex gap-1">
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                    </div>
-                  </div>
-                </div>
-
-                <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, track my
+                  spending, and even set aside money for future goals. The user interface is super intuitive, and the
+                  customer support is always there to help.
                 </motion.p>
               </motion.div>
 
@@ -231,7 +227,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -243,37 +239,9 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
-                </motion.p>
-              </motion.div>
-
-              <motion.div className="border-style w-full flex-col gap-2 rounded-2xl border p-4">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/icons/avatar.png"
-                    alt="More"
-                    width={64}
-                    height={64}
-                    className="max-md:h-10 max-md:w-10"
-                  />
-                  <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
-                    <div className="flex gap-1">
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                    </div>
-                  </div>
-                </div>
-
-                <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, track my
+                  spending, and even set aside money for future goals. The user interface is super intuitive, and the
+                  customer support is always there to help.
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -295,7 +263,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -323,7 +291,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -351,7 +319,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -380,7 +348,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -408,7 +376,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -430,7 +398,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 <div className="flex items-center gap-3">
                   <Image src="/icons/avatar.png" alt="More" width={64} height={64} />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">John Clayton</p>
+                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />

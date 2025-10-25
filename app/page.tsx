@@ -50,7 +50,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Preloader visible={!isPageLoaded} />
+      {/* <Preloader visible={!isPageLoaded} /> */}
       <section className="flex size-full flex-col items-center justify-center md:mb-40">
         <DashboardNav />
 

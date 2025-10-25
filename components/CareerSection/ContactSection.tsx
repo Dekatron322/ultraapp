@@ -128,8 +128,10 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
         </svg>
       ),
       title: "Email Us",
-      content: "info@ultraapp.co",
-      link: "mailto:info@ultraapp.com",
+      emails: [
+        { address: "admin@myultraapp.com", label: "Admin" },
+        { address: "support@myultraapp.com", label: "Support" }
+      ],
     },
     {
       icon: (
@@ -146,22 +148,6 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
       content: "+234 703 551 8215",
       link: "tel:+2347035518215",
     },
-    // {
-    //   icon: (
-    //     <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    //       <path
-    //         strokeLinecap="round"
-    //         strokeLinejoin="round"
-    //         strokeWidth={2}
-    //         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-    //       />
-    //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-    //     </svg>
-    //   ),
-    //   title: "Visit Us",
-    //   content: "123 Business Ave, Suite 100\nNew York, NY 10001",
-    //   link: "https://maps.google.com",
-    // },
   ]
 
   return (
@@ -205,9 +191,8 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
           {/* Contact Methods */}
           <div className="space-y-6">
             {contactInfo.map((item, index) => (
-              <motion.a
+              <motion.div
                 key={index}
-                href={item.link}
                 variants={slideInLeft}
                 whileHover={{ x: 10, transition: { duration: 0.2 } }}
                 className="features-cards border-style group flex items-start space-x-4 rounded-xl p-4 transition-colors duration-300 hover:shadow-lg"
@@ -219,9 +204,35 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
                   <h4 className="large-text mb-1 text-lg font-semibold transition-colors duration-300 group-hover:text-blue-600">
                     {item.title}
                   </h4>
-                  <p className="smaller-text whitespace-pre-line leading-relaxed">{item.content}</p>
+                  
+                  {/* Render emails individually if they exist */}
+                  {item.emails ? (
+                    <div className="space-y-1">
+                      {item.emails.map((email, emailIndex) => (
+                        <motion.a
+                          key={emailIndex}
+                          href={`mailto:${email.address}`}
+                          className="smaller-text block leading-relaxed text-blue-600 hover:text-blue-700 hover:underline transition-colors duration-200"
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {email.label}: {email.address}
+                        </motion.a>
+                      ))}
+                    </div>
+                  ) : (
+                    /* Render regular content for non-email items */
+                    <motion.a
+                      href={item.link}
+                      className="smaller-text block whitespace-pre-line leading-relaxed text-blue-600 hover:text-blue-700 hover:underline transition-colors duration-200"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {item.content}
+                    </motion.a>
+                  )}
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
 
@@ -241,6 +252,8 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
                 <motion.a
                   key={index}
                   href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="features-cards border-style flex size-12 items-center justify-center rounded-lg text-lg transition-colors duration-300 hover:shadow-lg"

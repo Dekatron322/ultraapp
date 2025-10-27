@@ -1,6 +1,5 @@
 "use client"
-
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import LogoIcon from "public/icons/logo-icon"
 import LogoIconDark from "public/icons/logo-icon-dark"

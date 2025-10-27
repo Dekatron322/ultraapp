@@ -1,12 +1,86 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import LogoIcon from "public/icons/logo-icon"
 import LogoIconDark from "public/icons/logo-icon-dark"
 
+// Ghost API Types
+interface GhostPost {
+  id: string
+  slug: string
+  title: string
+  excerpt: string
+  html: string
+  feature_image: string
+  featured: boolean
+  visibility: string
+  created_at: string
+  updated_at: string
+  published_at: string
+  custom_excerpt: string
+  codeinjection_head: string | null
+  codeinjection_foot: string | null
+  custom_template: string | null
+  canonical_url: string | null
+  authors: Array<{
+    id: string
+    name: string
+    slug: string
+    profile_image: string | null
+    cover_image: string | null
+    bio: string | null
+    website: string | null
+    location: string | null
+    facebook: string | null
+    twitter: string | null
+    meta_title: string | null
+    meta_description: string | null
+    url: string
+  }>
+  tags: Array<{
+    id: string
+    name: string
+    slug: string
+    description: string | null
+    feature_image: string | null
+    visibility: string
+    meta_title: string | null
+    meta_description: string | null
+    url: string
+  }>
+  primary_author: {
+    id: string
+    name: string
+    slug: string
+    profile_image: string | null
+    cover_image: string | null
+    bio: string | null
+    website: string | null
+    location: string | null
+    facebook: string | null
+    twitter: string | null
+    meta_title: string | null
+    meta_description: string | null
+    url: string
+  }
+  primary_tag: {
+    id: string
+    name: string
+    slug: string
+    description: string | null
+    feature_image: string | null
+    visibility: string
+    meta_title: string | null
+    meta_description: string | null
+    url: string
+  } | null
+  url: string
+  reading_time: number
+}
+
 interface Blog {
-  id: number
+  id: string
   title: string
   category: string
   author: string
@@ -15,15 +89,31 @@ interface Blog {
   description: string
   image: string
   tags: string[]
+  slug: string
 }
 
 interface BlogsProps {
   currentTheme: string | undefined
 }
 
+// Ghost API response shape
+interface GhostPostsResponse {
+  posts: GhostPost[]
+}
+
+// Ghost API Configuration
+const GHOST_CONFIG = {
+  url: 'https://ultra-app.ghost.io',
+  key: 'd80b5c24b579fa3eb7c69d96f8',
+  version: 'v5.0'
+}
+
 export default function Blogs({ currentTheme }: BlogsProps) {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
+  const [blogs, setBlogs] = useState<Blog[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   const buttonVariants = {
     initial: { scale: 1 },
@@ -46,21 +136,70 @@ export default function Blogs({ currentTheme }: BlogsProps) {
     },
   }
 
-  const blogs: Blog[] = [
+  // Fetch posts from Ghost API
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoading(true)
+        const apiUrl = `${GHOST_CONFIG.url}/ghost/api/content/posts/?key=${GHOST_CONFIG.key}&include=tags,authors&limit=all`
+        
+        const response = await fetch(apiUrl)
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch posts: ${response.status}`)
+        }
+        
+        const data = (await response.json()) as GhostPostsResponse
+        
+        if (!data || !Array.isArray(data.posts)) {
+          throw new Error('Invalid Ghost API response shape')
+        }
+        
+        // Transform Ghost posts to our Blog format
+        const transformedBlogs: Blog[] = data.posts.map((post: GhostPost, index: number) => ({
+          id: post.id,
+          title: post.title,
+          category: post.primary_tag?.name || "Uncategorized",
+          author: post.primary_author?.name || "Unknown Author",
+          date: post.published_at,
+          readTime: `${post.reading_time || 5} min read`,
+          description: post.excerpt || post.custom_excerpt || "No description available",
+          image: post.feature_image || "/blog-light.png", // Fallback image
+          tags: post.tags.slice(0, 3).map(tag => tag.name), // Limit to 3 tags
+          slug: post.slug
+        }))
+        
+        setBlogs(transformedBlogs)
+        setError(null)
+      } catch (err) {
+        console.error('Error fetching Ghost posts:', err)
+        setError('Failed to load blog posts. Please try again later.')
+        // Fallback to sample data if API fails
+        setBlogs(getSampleBlogs())
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPosts()
+  }, [])
+
+  // Sample data as fallback
+  const getSampleBlogs = (): Blog[] => [
     {
-      id: 1,
+      id: "1",
       title: "Crypto made simple: A beginner's roadmap to digital currency",
       category: "Beginner",
       author: "Sarah Johnson",
       date: "2024-01-15",
       readTime: "5 min read",
-      description:
-        "A beginner-friendly guide to crypto: what it is, why it matters, and how to safely get started with digital currencies.",
+      description: "A beginner-friendly guide to crypto: what it is, why it matters, and how to safely get started with digital currencies.",
       image: "/blog-light.png",
       tags: ["Crypto", "Beginner", "Guide"],
+      slug: "crypto-made-simple"
     },
     {
-      id: 2,
+      id: "2",
       title: "Understanding Blockchain Technology",
       category: "Technical",
       author: "Mike Chen",
@@ -69,56 +208,22 @@ export default function Blogs({ currentTheme }: BlogsProps) {
       description: "Deep dive into blockchain technology and its applications beyond cryptocurrency.",
       image: "/blog-light.png",
       tags: ["Blockchain", "Technology", "Web3"],
-    },
-    {
-      id: 3,
-      title: "NFT Market Trends 2024",
-      category: "Market",
-      author: "Emma Davis",
-      date: "2024-01-10",
-      readTime: "6 min read",
-      description: "Analysis of current NFT market trends and predictions for the coming year.",
-      image: "/blog-light.png",
-      tags: ["NFT", "Market", "Trends"],
-    },
-    {
-      id: 4,
-      title: "DeFi Protocols Comparison",
-      category: "Technical",
-      author: "Alex Rodriguez",
-      date: "2024-01-08",
-      readTime: "10 min read",
-      description: "Comprehensive comparison of popular DeFi protocols and their unique features.",
-      image: "/blog-light.png",
-      tags: ["DeFi", "Comparison", "Protocols"],
-    },
-    {
-      id: 5,
-      title: "Crypto Security Best Practices",
-      category: "Security",
-      author: "Lisa Wang",
-      date: "2024-01-05",
-      readTime: "7 min read",
-      description: "Essential security practices to protect your cryptocurrency investments.",
-      image: "/blog-light.png",
-      tags: ["Security", "Best Practices", "Wallet"],
-    },
-    {
-      id: 6,
-      title: "The Future of Web3 Gaming",
-      category: "Gaming",
-      author: "Tom Wilson",
-      date: "2024-01-03",
-      readTime: "9 min read",
-      description: "Exploring the potential of Web3 gaming and play-to-earn models.",
-      image: "/blog-light.png",
-      tags: ["Gaming", "Web3", "NFT"],
+      slug: "understanding-blockchain"
     },
   ]
 
   const categories = ["all", ...Array.from(new Set(blogs.map((blog) => blog.category)))]
 
   const filteredBlogs = selectedCategory === "all" ? blogs : blogs.filter((blog) => blog.category === selectedCategory)
+
+  // Format date function
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
 
   return (
     <div className="flex w-full flex-col items-center p-20 max-sm:p-4">
@@ -152,8 +257,7 @@ export default function Blogs({ currentTheme }: BlogsProps) {
                 Articles for <span className="crypto-text">You</span>
               </motion.h2>
               <motion.p className="small-text mt-4 max-w-2xl text-xl max-md:text-center" variants={fadeInUp}>
-                Discover the latest insights, trends, and guides in the world of cryptocurrency and blockchain
-                technology.
+                Discover the latest insights, trends, and guides in the world of cryptocurrency and blockchain technology.
               </motion.p>
             </div>
 
@@ -216,31 +320,55 @@ export default function Blogs({ currentTheme }: BlogsProps) {
           </div>
         </motion.div>
 
+        {/* Loading State */}
+        {loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-12 flex justify-center"
+          >
+            <div className="text-lg">Loading posts...</div>
+          </motion.div>
+        )}
+
+        {/* Error State */}
+        {error && !loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-12 rounded-lg bg-red-50 p-4 dark:bg-red-900/20"
+          >
+            <div className="text-red-800 dark:text-red-200">{error}</div>
+          </motion.div>
+        )}
+
         {/* Blogs Grid/List */}
-        <motion.div
-          key={viewMode + selectedCategory}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mt-12"
-        >
-          {viewMode === "grid" ? (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {filteredBlogs.map((blog, index) => (
-                <BlogCard key={blog.id} blog={blog} viewMode={viewMode} index={index} />
-              ))}
-            </div>
-          ) : (
-            <div className="space-y-6">
-              {filteredBlogs.map((blog, index) => (
-                <BlogCard key={blog.id} blog={blog} viewMode={viewMode} index={index} />
-              ))}
-            </div>
-          )}
-        </motion.div>
+        {!loading && !error && (
+          <motion.div
+            key={viewMode + selectedCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mt-12"
+          >
+            {viewMode === "grid" ? (
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {filteredBlogs.map((blog, index) => (
+                  <BlogCard key={blog.id} blog={blog} viewMode={viewMode} index={index} />
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-6">
+                {filteredBlogs.map((blog, index) => (
+                  <BlogCard key={blog.id} blog={blog} viewMode={viewMode} index={index} />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
 
         {/* Empty State */}
-        {filteredBlogs.length === 0 && (
+        {!loading && !error && filteredBlogs.length === 0 && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-12 text-center">
             <div className="smaller-text text-lg">No articles found in this category.</div>
           </motion.div>
@@ -269,6 +397,20 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
     },
   }
 
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
+
+  const handleReadMore = () => {
+    // Navigate to the individual blog post
+    // You can use Next.js router or your preferred routing method
+    window.open(`https://ultra-app.ghost.io/${blog.slug}/`, '_blank')
+  }
+
   return (
     <motion.div
       variants={cardVariants}
@@ -279,6 +421,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
         hover:shadow-md
         ${viewMode === "list" ? "flex flex-col p-6 lg:flex-row lg:items-start" : "p-6"}
       `}
+      onClick={handleReadMore}
     >
       {/* Blog Image */}
       <div className={`${viewMode === "list" ? "mb-4 lg:mb-0 lg:mr-6 lg:w-64" : "mb-4"}`}>
@@ -287,6 +430,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
             src={blog.image}
             alt={blog.title}
             className="size-full object-cover transition-transform duration-300 hover:scale-105"
+            onError={(e) => {
+              // Fallback if image fails to load
+              e.currentTarget.src = "/blog-light.png"
+            }}
           />
         </div>
       </div>
@@ -330,7 +477,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              {new Date(blog.date).toLocaleDateString()}
+              {formatDate(blog.date)}
             </div>
           </div>
 
@@ -348,7 +495,15 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
         </div>
 
         {/* Read More Button */}
-        <button className="button-style mt-4 w-full lg:mt-10 lg:w-auto">Read More</button>
+        <button 
+          className="button-style mt-4 w-full lg:mt-10 lg:w-auto"
+          onClick={(e) => {
+            e.stopPropagation()
+            handleReadMore()
+          }}
+        >
+          Read More
+        </button>
       </div>
     </motion.div>
   )

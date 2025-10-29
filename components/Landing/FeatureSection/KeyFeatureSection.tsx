@@ -183,7 +183,7 @@ const KeyFeatureSection = ({ currentTheme }: FeatureSectionProps) => {
           ) : (
             <img src="/icons/central-wallet.svg" alt="Download" className="size-12" />
           )}
-          <h3 className="text-4xl font-medium max-md:text-3xl">Personalized Naira Wallets</h3>
+          <h3 className="text-4xl font-medium max-md:text-3xl">Personalized Fiat Wallets</h3>
           <p className="smaller-text mb-10">
             Unlock immediate access to crucial financial data with our advanced real- time analytics, allowing you to
             stay ahead of the curve. Whether it&apos;s tracking cash flow, monitoring expenses, or forecasting trends,

@@ -68,8 +68,8 @@ const FeatureSection = ({ currentTheme }: FeatureSectionProps) => {
           ) : (
             <img src="/icons/central-wallet.svg" alt="Download" className="size-12" />
           )}
-          <h3 className="text-4xl font-medium max-sm:text-2xl">Personalized Naira Wallets</h3>
-          <p className="mb-10 max-sm:text-sm">Get your unique Naira wallet for easy deposits and withdrawals.</p>
+          <h3 className="text-4xl font-medium max-sm:text-2xl">Personalized Fiat Wallets</h3>
+          <p className="mb-10 max-sm:text-sm">Get your unique Fiat wallet for easy deposits and withdrawals.</p>
           <div className="relative z-0 mt-auto flex w-full items-end justify-center">
             <motion.div variants={imageVariants} initial="initial" whileHover="hover">
               {currentTheme === "dark" ? (

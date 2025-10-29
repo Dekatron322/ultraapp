@@ -51,7 +51,7 @@ const NewAboutSection = ({ currentTheme }: FeatureSectionProps) => {
 
           <p className="my-2 max-md:text-center max-md:text-sm">
             At Ultra, we believe digital finance should be effortless. That&apos;s why we’ve built a unified platform
-            that allows users to buy and sell crypto with Naira, swap between cryptocurrencies, send and receive
+            that allows users to buy and sell crypto with Fiat, swap between cryptocurrencies, send and receive
             payments, pay bills, and manage everyday financial transactions, all in one app.
           </p>
           <p className="max-md:text-center max-md:text-sm">

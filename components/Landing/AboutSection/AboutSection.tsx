@@ -69,7 +69,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
               Used and trusted by a community of <span className="crypto-text">millions</span>
             </motion.h2>
             <motion.p className="small-text mt-2 dark:text-gray-300 max-md:text-center" variants={fadeInUp}>
-              UltraApp is changing the DeFi scene in Nigeria with 15,000+ users. Our platform makes cryptocurrency easy
+              UltraApp is changing the DeFi scene Globally with 15,000+ users. Our platform makes cryptocurrency easy
               and practical for daily use.
             </motion.p>
 
@@ -107,7 +107,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
           ) : (
             <img src="/icons/download.svg" alt="Download" />
           )}
-          <h3 className="text-5xl font-semibold max-sm:text-2xl">30K</h3>
+          <h3 className="text-5xl font-semibold max-sm:text-2xl">19K</h3>
           <p>App downloads</p>
         </div>
         <div className="border-style flex items-center gap-2 rounded-2xl  p-2">
@@ -116,7 +116,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
           ) : (
             <img src="/icons/user.svg" alt="Download" />
           )}
-          <h3 className="text-5xl font-semibold max-sm:text-2xl">19K</h3>
+          <h3 className="text-5xl font-semibold max-sm:text-2xl">16K</h3>
           <p>Active users</p>
         </div>
         <div className="border-style flex items-center gap-2 rounded-2xl  p-2">
@@ -125,7 +125,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
           ) : (
             <img src="/icons/wallet.svg" alt="Download" />
           )}
-          <h3 className="text-5xl font-semibold max-sm:text-2xl">200K</h3>
+          <h3 className="text-5xl font-semibold max-sm:text-2xl">14K</h3>
           <p>Wallets Created</p>
         </div>
       </div>

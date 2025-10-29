@@ -154,7 +154,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Swap over 20 cryptocurrencies to Naira instantly with Ultra App. Enjoy rapid payouts, seamless bill payments,
+          Swap over 20 cryptocurrencies to Fiat instantly with Ultra App. Enjoy rapid payouts, seamless bill payments,
           and limitless transactions. Open your free account today!
         </motion.p>
 

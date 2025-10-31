@@ -99,9 +99,9 @@ interface Blog {
 
 // Ghost API Configuration
 const GHOST_CONFIG = {
-  url: 'https://ultra-app.ghost.io',
-  key: 'd80b5c24b579fa3eb7c69d96f8',
-  version: 'v5.0'
+  url: "https://ultra-app.ghost.io",
+  key: "d80b5c24b579fa3eb7c69d96f8",
+  version: "v5.0",
 }
 
 const BlogSection = ({ currentTheme }: BlogSectionProps) => {
@@ -154,15 +154,15 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
       try {
         setLoading(true)
         const apiUrl = `${GHOST_CONFIG.url}/ghost/api/content/posts/?key=${GHOST_CONFIG.key}&include=tags,authors&limit=3&order=published_at DESC`
-        
+
         const response = await fetch(apiUrl)
-        
+
         if (!response.ok) {
           throw new Error(`Failed to fetch posts: ${response.status}`)
         }
-        
+
         const data = (await response.json()) as { posts: GhostPost[] }
-        
+
         // Transform Ghost posts to our Blog format
         const transformedBlogs: Blog[] = data.posts.map((post) => ({
           id: post.id,
@@ -173,15 +173,15 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
           readTime: `${post.reading_time || 5} min read`,
           description: post.excerpt || post.custom_excerpt || "No description available",
           image: post.feature_image || "/blog/blog1.png", // Fallback image
-          tags: post.tags.slice(0, 2).map(tag => tag.name), // Limit to 2 tags
-          slug: post.slug
+          tags: post.tags.slice(0, 2).map((tag) => tag.name), // Limit to 2 tags
+          slug: post.slug,
         }))
-        
+
         setFeaturedBlogs(transformedBlogs)
         setError(null)
       } catch (err) {
-        console.error('Error fetching Ghost posts:', err)
-        setError('Failed to load featured posts.')
+        console.error("Error fetching Ghost posts:", err)
+        setError("Failed to load featured posts.")
         // Fallback to sample data if API fails
         setFeaturedBlogs(getSampleBlogs())
       } finally {
@@ -201,10 +201,11 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
       author: "Sarah Johnson",
       date: "2024-01-15",
       readTime: "5 min read",
-      description: "Perfect for small businesses or startups, our Starter Plan gives you the essential tools to manage your finances with ease.",
+      description:
+        "Perfect for small businesses or startups, our Starter Plan gives you the essential tools to manage your finances with ease.",
       image: "/blog/blog1.png",
       tags: ["Crypto", "Finance"],
-      slug: "real-time-analytics-financial-strategy"
+      slug: "real-time-analytics-financial-strategy",
     },
     {
       id: "2",
@@ -213,10 +214,11 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
       author: "Mike Chen",
       date: "2024-01-12",
       readTime: "8 min read",
-      description: "Deep dive into blockchain technology and its applications beyond cryptocurrency for modern businesses.",
+      description:
+        "Deep dive into blockchain technology and its applications beyond cryptocurrency for modern businesses.",
       image: "/blog/blog1.png",
       tags: ["Blockchain", "Technology"],
-      slug: "understanding-blockchain-business"
+      slug: "understanding-blockchain-business",
     },
     {
       id: "3",
@@ -228,20 +230,20 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
       description: "Learn how to leverage data analytics to make better financial decisions and drive business growth.",
       image: "/blog/blog1.png",
       tags: ["Data", "Finance"],
-      slug: "maximizing-data-value-financial-decisions"
+      slug: "maximizing-data-value-financial-decisions",
     },
   ]
 
   const handleReadMore = (slug: string) => {
-    // Navigate to the individual blog post on Ghost
-    window.open(`https://ultra-app.ghost.io/${slug}/`, '_blank')
+    // Navigate to the internal blog detail page
+    window.location.href = `/blog/${slug}`
   }
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     })
   }
 
@@ -297,16 +299,16 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
 
       {/* Blog Posts Grid */}
       {!loading && (
-        <motion.div 
+        <motion.div
           className="grid w-full gap-4 max-md:px-4 md:max-w-[1240px] md:grid-cols-3"
           initial="hidden"
           animate="visible"
           variants={{
             visible: {
               transition: {
-                staggerChildren: 0.1
-              }
-            }
+                staggerChildren: 0.1,
+              },
+            },
           }}
         >
           {featuredBlogs.map((blog, index) => (
@@ -317,14 +319,14 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
               whileHover="hover"
             >
               {/* Blog Image */}
-              <motion.div className="overflow-hidden rounded-xl" variants={imageVariants}>
-                <img 
-                  src={blog.image} 
+              <motion.div className="overflow-hidden rounded-xl">
+                <img
+                  src={blog.image}
                   alt={blog.title}
-                  className="h-48 w-full object-cover"
+                  className="size-full object-cover transition-transform duration-300 hover:scale-105"
                   onError={(e) => {
                     // Fallback if image fails to load
-                    e.currentTarget.src = "/blog/blog1.png"
+                    e.currentTarget.src = "/blog-light.png"
                   }}
                 />
               </motion.div>
@@ -335,7 +337,7 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
                   {blog.category}
                 </div>
                 {blog.tags.slice(0, 1).map((tag, i) => (
-                  <div 
+                  <div
                     key={i}
                     className="email relative flex h-10 cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2 transition-all duration-500 max-sm:text-xs"
                   >
@@ -345,14 +347,10 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
               </div>
 
               {/* Title */}
-              <h6 className="mb-4 text-2xl font-medium line-clamp-2">
-                {blog.title}
-              </h6>
+              <h6 className="mb-4 line-clamp-2 text-2xl font-medium">{blog.title}</h6>
 
               {/* Description */}
-              <p className="smaller-text line-clamp-3">
-                {blog.description}
-              </p>
+              <p className="smaller-text line-clamp-3">{blog.description}</p>
 
               {/* Meta Info */}
               <div className="smaller-text mt-3 flex items-center gap-2 text-sm text-gray-500">
@@ -361,17 +359,17 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
                 <span>{formatDate(blog.date)}</span>
               </div>
 
-              {/* Read More Button */}
-              <motion.button 
-                className="button-style3 border-style mt-3 justify-center text-center"
-                variants={buttonVariants}
-                initial="initial"
-                whileHover="hover"
-                whileTap="tap"
-                onClick={() => handleReadMore(blog.slug)}
-              >
-                Read More
-              </motion.button>
+              <Link href={`/blog/${blog.slug}`}>
+                <motion.button
+                  className="button-style3 border-style mt-3 justify-center text-center"
+                  variants={buttonVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  Read More
+                </motion.button>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -379,11 +377,7 @@ const BlogSection = ({ currentTheme }: BlogSectionProps) => {
 
       {/* Empty State */}
       {!loading && !error && featuredBlogs.length === 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center"
-        >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
           <div className="smaller-text text-lg">No featured posts available.</div>
         </motion.div>
       )}

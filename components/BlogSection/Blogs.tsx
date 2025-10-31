@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import LogoIcon from "public/icons/logo-icon"
 import LogoIconDark from "public/icons/logo-icon-dark"
+import Link from "next/link"
 
 // Ghost API Types
 interface GhostPost {
@@ -100,11 +101,20 @@ interface GhostPostsResponse {
   posts: GhostPost[]
 }
 
+const buttonVariants = {
+  initial: { scale: 1 },
+  hover: {
+    scale: 1.02,
+    transition: { type: "spring", stiffness: 300, damping: 15 },
+  },
+  tap: { scale: 0.98 },
+}
+
 // Ghost API Configuration
 const GHOST_CONFIG = {
-  url: 'https://ultra-app.ghost.io',
-  key: 'd80b5c24b579fa3eb7c69d96f8',
-  version: 'v5.0'
+  url: "https://ultra-app.ghost.io",
+  key: "d80b5c24b579fa3eb7c69d96f8",
+  version: "v5.0",
 }
 
 export default function Blogs({ currentTheme }: BlogsProps) {
@@ -141,19 +151,19 @@ export default function Blogs({ currentTheme }: BlogsProps) {
       try {
         setLoading(true)
         const apiUrl = `${GHOST_CONFIG.url}/ghost/api/content/posts/?key=${GHOST_CONFIG.key}&include=tags,authors&limit=all`
-        
+
         const response = await fetch(apiUrl)
-        
+
         if (!response.ok) {
           throw new Error(`Failed to fetch posts: ${response.status}`)
         }
-        
+
         const data = (await response.json()) as GhostPostsResponse
-        
+
         if (!data || !Array.isArray(data.posts)) {
-          throw new Error('Invalid Ghost API response shape')
+          throw new Error("Invalid Ghost API response shape")
         }
-        
+
         // Transform Ghost posts to our Blog format
         const transformedBlogs: Blog[] = data.posts.map((post: GhostPost, index: number) => ({
           id: post.id,
@@ -164,15 +174,15 @@ export default function Blogs({ currentTheme }: BlogsProps) {
           readTime: `${post.reading_time || 5} min read`,
           description: post.excerpt || post.custom_excerpt || "No description available",
           image: post.feature_image || "/blog-light.png", // Fallback image
-          tags: post.tags.slice(0, 3).map(tag => tag.name), // Limit to 3 tags
-          slug: post.slug
+          tags: post.tags.slice(0, 3).map((tag) => tag.name), // Limit to 3 tags
+          slug: post.slug,
         }))
-        
+
         setBlogs(transformedBlogs)
         setError(null)
       } catch (err) {
-        console.error('Error fetching Ghost posts:', err)
-        setError('Failed to load blog posts. Please try again later.')
+        console.error("Error fetching Ghost posts:", err)
+        setError("Failed to load blog posts. Please try again later.")
         // Fallback to sample data if API fails
         setBlogs(getSampleBlogs())
       } finally {
@@ -192,10 +202,11 @@ export default function Blogs({ currentTheme }: BlogsProps) {
       author: "Sarah Johnson",
       date: "2024-01-15",
       readTime: "5 min read",
-      description: "A beginner-friendly guide to crypto: what it is, why it matters, and how to safely get started with digital currencies.",
+      description:
+        "A beginner-friendly guide to crypto: what it is, why it matters, and how to safely get started with digital currencies.",
       image: "/blog-light.png",
       tags: ["Crypto", "Beginner", "Guide"],
-      slug: "crypto-made-simple"
+      slug: "crypto-made-simple",
     },
     {
       id: "2",
@@ -207,7 +218,7 @@ export default function Blogs({ currentTheme }: BlogsProps) {
       description: "Deep dive into blockchain technology and its applications beyond cryptocurrency.",
       image: "/blog-light.png",
       tags: ["Blockchain", "Technology", "Web3"],
-      slug: "understanding-blockchain"
+      slug: "understanding-blockchain",
     },
   ]
 
@@ -217,10 +228,10 @@ export default function Blogs({ currentTheme }: BlogsProps) {
 
   // Format date function
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     })
   }
 
@@ -256,7 +267,8 @@ export default function Blogs({ currentTheme }: BlogsProps) {
                 Articles for <span className="crypto-text">You</span>
               </motion.h2>
               <motion.p className="small-text mt-4 max-w-2xl text-xl max-md:text-center" variants={fadeInUp}>
-                Discover the latest insights, trends, and guides in the world of cryptocurrency and blockchain technology.
+                Discover the latest insights, trends, and guides in the world of cryptocurrency and blockchain
+                technology.
               </motion.p>
             </div>
 
@@ -324,9 +336,21 @@ export default function Blogs({ currentTheme }: BlogsProps) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mt-12 flex justify-center"
+            className="grid w-full gap-4 max-md:px-4 md:max-w-[1240px] md:grid-cols-3"
           >
-            <div className="text-lg">Loading posts...</div>
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="border-style flex flex-col rounded-2xl p-4">
+                <div className="skeleton h-48 w-full rounded-xl bg-gray-200 dark:bg-gray-700"></div>
+                <div className="my-3 flex items-center gap-2">
+                  <div className="skeleton h-10 w-20 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                  <div className="skeleton h-10 w-20 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                </div>
+                <div className="skeleton mb-4 h-6 w-full rounded bg-gray-200 dark:bg-gray-700"></div>
+                <div className="skeleton h-4 w-full rounded bg-gray-200 dark:bg-gray-700"></div>
+                <div className="skeleton mt-2 h-4 w-3/4 rounded bg-gray-200 dark:bg-gray-700"></div>
+                <div className="skeleton mt-3 h-10 w-full rounded-lg bg-gray-200 dark:bg-gray-700"></div>
+              </div>
+            ))}
           </motion.div>
         )}
 
@@ -397,17 +421,16 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
   }
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     })
   }
 
-  const handleReadMore = () => {
-    // Navigate to the individual blog post
-    // You can use Next.js router or your preferred routing method
-    window.open(`https://ultra-app.ghost.io/${blog.slug}/`, '_blank')
+  const handleReadMore = (slug: string) => {
+    // Navigate to the internal blog detail page
+    window.location.href = `/blog/${slug}`
   }
 
   return (
@@ -418,9 +441,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
       className={`
         features-cards border-style cursor-pointer rounded-xl shadow-sm transition-all duration-300 
         hover:shadow-md
-        ${viewMode === "list" ? "flex flex-col p-6 lg:flex-row lg:items-start" : "p-6"}
+        ${viewMode === "list" ? "flex flex-col p-6 lg:flex-row lg:items-start" : "p-4"}
       `}
-      onClick={handleReadMore}
+      // onClick={handleReadMore}
     >
       {/* Blog Image */}
       <div className={`${viewMode === "list" ? "mb-4 lg:mb-0 lg:mr-6 lg:w-64" : "mb-4"}`}>
@@ -494,15 +517,17 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, viewMode, index }) => {
         </div>
 
         {/* Read More Button */}
-        <button 
-          className="button-style mt-4 w-full lg:mt-10 lg:w-auto"
-          onClick={(e) => {
-            e.stopPropagation()
-            handleReadMore()
-          }}
-        >
-          Read More
-        </button>
+        <Link href={`/blog/${blog.slug}`}>
+          <motion.button
+            className="button-style3 border-style mt-3 justify-center text-center"
+            variants={buttonVariants}
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+          >
+            Read More
+          </motion.button>
+        </Link>
       </div>
     </motion.div>
   )

@@ -273,11 +273,7 @@ export default function BlogDetailPage() {
             </h1>
 
             {/* Excerpt */}
-            {post.excerpt && (
-              <p className="mb-6 text-xl leading-relaxed text-gray-600 dark:text-gray-300 max-sm:text-lg">
-                {post.excerpt}
-              </p>
-            )}
+            {post.excerpt && <p className="smaller-text mb-6 text-xl leading-relaxed max-sm:text-lg">{post.excerpt}</p>}
 
             {/* Meta Info */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400 max-sm:gap-2">
@@ -329,20 +325,19 @@ export default function BlogDetailPage() {
                          
                          Section titles (h2) - Smaller on mobile */ prose-h2:text-2xl
                          prose-h2:sm:text-3xl prose-h2:font-bold prose-h2:tracking-tight prose-h2:mt-12 
-                         prose-h2:mb-6 prose-h2:text-gray-900 prose-h2:dark:text-white /*
+                         prose-h2:mb-6  /*
                          
                          Subsection titles (h3) - Smaller on mobile */ prose-h3:text-xl
                          prose-h3:sm:text-2xl prose-h3:font-semibold prose-h3:tracking-tight prose-h3:mt-10
                          prose-h3:mb-4 prose-h3:text-gray-800 prose-h3:dark:text-gray-200 /*
                          
-                         Paragraph styling */ prose-p:text-gray-700
-                         prose-p:dark:text-gray-300 prose-p:leading-relaxed prose-p:mb-6 /*
+                         Paragraph styling */ prose-p:smaller-text prose-p:leading-relaxed prose-p:mb-6 /*
                          
                          Link styling */ prose-a:text-blue-600
                          prose-a:no-underline hover:prose-a:text-blue-700 dark:prose-a:text-blue-400 
                          dark:hover:prose-a:text-blue-300 /*
                          
-                         Strong text */ prose-strong:text-gray-900
+                         Strong text */
                          prose-strong:dark:text-white prose-strong:font-semibold /*
                          
                          Blockquotes */ prose-blockquote:border-l-blue-500
@@ -381,7 +376,7 @@ export default function BlogDetailPage() {
                 />
               )}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{post.primary_author.name}</h3>
+                <h3 className="text-lg font-semibold ">{post.primary_author.name}</h3>
                 {post.primary_author.bio && (
                   <p className="mt-2 text-gray-600 dark:text-gray-400">{post.primary_author.bio}</p>
                 )}
@@ -479,7 +474,7 @@ export default function BlogDetailPage() {
           font-size: 1.5rem !important; /* text-2xl for mobile */
           line-height: 2rem !important;
           font-weight: 700 !important;
-          color: #111827 !important;
+
           margin-top: 2rem !important;
           margin-bottom: 1rem !important;
           letter-spacing: -0.025em !important;

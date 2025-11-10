@@ -40,11 +40,11 @@ const NewAboutSection = ({ currentTheme }: FeatureSectionProps) => {
 
         <div className="smaller-text">
           <p className="max-md:text-center max-md:text-sm">
-            Empowering Nigerians to Seamlessly Access Crypto and Web3 Finance
+            Empowering The Globe to Seamlessly Access Crypto and Web3 Finance
           </p>
           <p className="mt-2 max-md:text-center max-md:text-sm">
             Ultra App is a next-generation fintech and crypto platform designed to make cryptocurrency and Web3 finance
-            simple, secure, and accessible for every Nigerian. We bridge the gap between traditional finance and
+            simple, secure, and accessible for every individual. We bridge the gap between traditional finance and
             decentralized systems through an all-in-one mobile experience thats as easy to use as your everyday banking
             app.
           </p>

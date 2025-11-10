@@ -142,7 +142,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
+                    <p className="text-xl max-md:text-base">Godstime Kings</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -154,9 +154,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  I love the innovative features UltraApp offers. From cryptocurrency support to the ability to connect
-                  with decentralized apps, it&apos;s a wallet that keeps up with the latest trends in financial
-                  technology.
+                  I have been using Ultra app since this year and everything works just fine. I love it
                 </motion.p>
               </motion.div>
 
@@ -170,7 +168,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
+                    <p className="text-xl max-md:text-base">Chisom Obi</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -182,14 +180,39 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments, As
-                  a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, track my
-                  spending, and even set aside money for future goals. The user interface is super intuitive, and the
-                  customer support is always there to help.
+                  OMG! This app is so amazing, can't believe a day would come that a fintech app would make crypto easy
+                  to use without complicated features
                 </motion.p>
               </motion.div>
 
               <motion.div className="border-style w-full flex-col gap-2 rounded-2xl border p-4">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/icons/avatar.png"
+                    alt="More"
+                    width={64}
+                    height={64}
+                    className="max-md:h-10 max-md:w-10"
+                  />
+                  <div className="flex flex-col gap-2">
+                    <p className="text-xl max-md:text-base">Duru Dumebi</p>
+                    <div className="flex gap-1">
+                      <StarIcon />
+                      <StarIcon />
+                      <StarIcon />
+                      <StarIcon />
+                      <StarIcon />
+                    </div>
+                  </div>
+                </div>
+
+                <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, trade my
+                  crypro to fiat with ease
+                </motion.p>
+              </motion.div>
+
+              {/* <motion.div className="border-style w-full flex-col gap-2 rounded-2xl border p-4">
                 <div className="flex items-center gap-3">
                   <Image
                     src="/icons/avatar.png"
@@ -215,35 +238,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                   spending, and even set aside money for future goals. The user interface is super intuitive, and the
                   customer support is always there to help.
                 </motion.p>
-              </motion.div>
-
-              <motion.div className="border-style w-full flex-col gap-2 rounded-2xl border p-4">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/icons/avatar.png"
-                    alt="More"
-                    width={64}
-                    height={64}
-                    className="max-md:h-10 max-md:w-10"
-                  />
-                  <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
-                    <div className="flex gap-1">
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                    </div>
-                  </div>
-                </div>
-
-                <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, track my
-                  spending, and even set aside money for future goals. The user interface is super intuitive, and the
-                  customer support is always there to help.
-                </motion.p>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
 
             {/* Mobile - Horizontal Scroll */}

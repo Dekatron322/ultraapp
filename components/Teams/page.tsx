@@ -1,18 +1,29 @@
 "use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useTheme } from "next-themes"
 
 const Teams = () => {
   const teams = [
-    { name: "logo1", logo: "" },
-    { name: "logo2", logo: "" },
-    { name: "logo3", logo: "" },
-    { name: "logo4", logo: "" },
-    { name: "logo5", logo: "" },
-    { name: "logo6", logo: "" },
-    { name: "logo7", logo: "" },
-    { name: "logo8", logo: "" },
+    { name: "logo1", logo: "/9psb.png" },
+    { name: "logo2", logo: "/termii.png" },
+    { name: "logo3", logo: "/resend.svg", logoLight: "/resend.svg", logoDark: "/resend-white.svg" },
+    { name: "logo4", logo: "/dojah.svg" },
+    { name: "logo4", logo: "/cngn.png" },
+    { name: "logo5", logo: "/onesignal.svg", logoLight: "/onesignal.svg", logoDark: "/onesignal-white.svg" },
+    { name: "logo1", logo: "/9psb.png" },
+    { name: "logo2", logo: "/termii.png" },
+    { name: "logo3", logo: "/resend.svg", logoLight: "/resend.svg", logoDark: "/resend-white.svg" },
+    { name: "logo4", logo: "/dojah.svg" },
+    { name: "logo4", logo: "/cngn.png" },
+    { name: "logo5", logo: "/onesignal.svg", logoLight: "/onesignal.svg", logoDark: "/onesignal-white.svg" },
+    { name: "logo1", logo: "/9psb.png" },
+    { name: "logo2", logo: "/termii.png" },
+    { name: "logo3", logo: "/resend.svg", logoLight: "/resend.svg", logoDark: "/resend-white.svg" },
+    { name: "logo4", logo: "/dojah.svg" },
+    { name: "logo4", logo: "/cngn.png" },
+    { name: "logo5", logo: "/onesignal.svg", logoLight: "/onesignal.svg", logoDark: "/onesignal-white.svg" },
   ]
 
   const containerVariants = {
@@ -53,7 +64,7 @@ const Teams = () => {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 30,
+          duration: 45,
           ease: "linear",
         },
       },
@@ -61,6 +72,10 @@ const Teams = () => {
   }
 
   const [broken, setBroken] = useState<Record<string, boolean>>({})
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  const currentTheme = resolvedTheme || theme
 
   return (
     <motion.div
@@ -93,14 +108,24 @@ const Teams = () => {
                       <span className="text-xs opacity-70">{team.name}</span>
                     </div>
                   ) : (
-                    <Image
-                      src={team.logo}
-                      alt={team.name}
-                      width={112}
-                      height={44}
-                      className="logo-mono h-11 w-28 object-contain"
-                      onError={() => setBroken((prev) => ({ ...prev, [key]: true }))}
-                    />
+                    (() => {
+                      const preferred =
+                        team.logoDark && team.logoLight
+                          ? mounted && currentTheme === "dark"
+                            ? team.logoDark
+                            : team.logoLight
+                          : team.logo
+                      return (
+                        <Image
+                          src={preferred}
+                          alt={team.name}
+                          width={112}
+                          height={44}
+                          className=" h-11 w-28 object-contain"
+                          onError={() => setBroken((prev) => ({ ...prev, [key]: true }))}
+                        />
+                      )
+                    })()
                   )}
                 </div>
               </motion.div>

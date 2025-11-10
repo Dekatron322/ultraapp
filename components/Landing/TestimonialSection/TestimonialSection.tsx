@@ -180,8 +180,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  OMG! This app is so amazing, can't believe a day would come that a fintech app would make crypto easy
-                  to use without complicated features
+                  OMG! This app is so amazing, can&lsquo;t believe a day would come that a fintech app would make crypto
+                  easy to use without complicated features
                 </motion.p>
               </motion.div>
 

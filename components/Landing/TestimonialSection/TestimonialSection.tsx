@@ -129,7 +129,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
             <motion.div
               className="hidden flex-col gap-4 md:flex"
               animate={{ y: ["0%", "-50%"] }}
-              transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+              transition={{ duration: 18, ease: "linear", repeat: Infinity }}
             >
               {/* Set 1 */}
               <motion.div className="border-style w-full flex-col gap-2 rounded-2xl border p-4">
@@ -291,54 +291,26 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                   crypro to fiat with ease
                 </motion.p>
               </motion.div>
-
-              {/* <motion.div className="border-style w-full flex-col gap-2 rounded-2xl border p-4">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/icons/avatar.png"
-                    alt="More"
-                    width={64}
-                    height={64}
-                    className="max-md:h-10 max-md:w-10"
-                  />
-                  <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
-                    <div className="flex gap-1">
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                    </div>
-                  </div>
-                </div>
-
-                <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, track my
-                  spending, and even set aside money for future goals. The user interface is super intuitive, and the
-                  customer support is always there to help.
-                </motion.p>
-              </motion.div> */}
             </motion.div>
 
-            {/* Mobile - Horizontal Scroll */}
+            {/* Mobile - Horizontal Scroll - FIXED */}
             <motion.div
               className="flex gap-4 md:hidden"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{ duration: 12, ease: "linear", repeat: Infinity }}
             >
               {/* Set 1 */}
               <motion.div className="border-style min-w-[300px] flex-col gap-2 rounded-2xl border p-4">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/icons/avatar.png"
+                    src="/icons/aivatar_rec_29.svg"
                     alt="More"
                     width={64}
                     height={64}
-                    className="max-md:h-10 max-md:w-10"
+                    className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
+                    <p className="text-xl max-md:text-base">Godstime Kings</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -350,23 +322,21 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  I have been using Ultra app since this year and everything works just fine. I love it
                 </motion.p>
               </motion.div>
 
               <motion.div className="border-style min-w-[300px] flex-col gap-2 rounded-2xl border p-4">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/icons/avatar.png"
+                    src="/icons/aivatar_rec_28.svg"
                     alt="More"
                     width={64}
                     height={64}
-                    className="max-md:h-10 max-md:w-10"
+                    className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
+                    <p className="text-xl max-md:text-base">Chisom Obi</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -378,23 +348,22 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  OMG! This app is so amazing, can&lsquo;t believe a day would come that a fintech app would make crypto
+                  easy to use without complicated features
                 </motion.p>
               </motion.div>
 
               <motion.div className="border-style min-w-[300px] flex-col gap-2 rounded-2xl border p-4">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/icons/avatar.png"
+                    src="/icons/aivatar_rec_04.svg"
                     alt="More"
                     width={64}
                     height={64}
-                    className="max-md:h-10 max-md:w-10"
+                    className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
+                    <p className="text-xl max-md:text-base">Duru Dumebi</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -406,52 +375,22 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
-                </motion.p>
-              </motion.div>
-
-              {/* Set 2 (duplicate for seamless scroll) */}
-              <motion.div className="border-style min-w-[300px] flex-col gap-2 rounded-2xl border p-4">
-                <div className="flex items-center gap-3">
-                  <Image
-                    src="/icons/avatar.png"
-                    alt="More"
-                    width={64}
-                    height={64}
-                    className="max-md:h-10 max-md:w-10"
-                  />
-                  <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
-                    <div className="flex gap-1">
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                      <StarIcon />
-                    </div>
-                  </div>
-                </div>
-
-                <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, trade my
+                  crypro to fiat with ease
                 </motion.p>
               </motion.div>
 
               <motion.div className="border-style min-w-[300px] flex-col gap-2 rounded-2xl border p-4">
                 <div className="flex items-center gap-3">
                   <Image
-                    src="/icons/avatar.png"
+                    src="/icons/aivatar_rec_29.svg"
                     alt="More"
                     width={64}
                     height={64}
-                    className="max-md:h-10 max-md:w-10"
+                    className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
+                    <p className="text-xl max-md:text-base">Godstime Kings</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -463,17 +402,21 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  I have been using Ultra app since this year and everything works just fine. I love it
                 </motion.p>
               </motion.div>
 
               <motion.div className="border-style min-w-[300px] flex-col gap-2 rounded-2xl border p-4">
                 <div className="flex items-center gap-3">
-                  <Image src="/icons/avatar.png" alt="More" width={64} height={64} />
+                  <Image
+                    src="/icons/aivatar_rec_28.svg"
+                    alt="More"
+                    width={64}
+                    height={64}
+                    className="rounded-full max-md:h-10 max-md:w-10"
+                  />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">{getRandomName()}</p>
+                    <p className="text-xl max-md:text-base">Chisom Obi</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -485,9 +428,35 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  UltraApp has streamlined our business operations significantly. We can now accept digital payments,
-                  track our expenses, and manage our team&apos;s finances all in one place. The security features are
-                  top-notch, giving us peace of mind.
+                  OMG! This app is so amazing, can&lsquo;t believe a day would come that a fintech app would make crypto
+                  easy to use without complicated features
+                </motion.p>
+              </motion.div>
+
+              <motion.div className="border-style min-w-[300px] flex-col gap-2 rounded-2xl border p-4">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/icons/aivatar_rec_04.svg"
+                    alt="More"
+                    width={64}
+                    height={64}
+                    className="rounded-full max-md:h-10 max-md:w-10"
+                  />
+                  <div className="flex flex-col gap-2">
+                    <p className="text-xl max-md:text-base">Duru Dumebi</p>
+                    <div className="flex gap-1">
+                      <StarIcon />
+                      <StarIcon />
+                      <StarIcon />
+                      <StarIcon />
+                      <StarIcon />
+                    </div>
+                  </div>
+                </div>
+
+                <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, trade my
+                  crypro to fiat with ease
                 </motion.p>
               </motion.div>
             </motion.div>

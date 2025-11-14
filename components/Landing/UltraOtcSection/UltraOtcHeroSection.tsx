@@ -652,28 +652,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Inquiry Type */}
-          <div>
-            <label htmlFor="inquiryType" className="mb-2 block text-sm font-medium text-gray-700">
-              Inquiry Type *
-            </label>
-            <select
-              id="inquiryType"
-              name="inquiryType"
-              value={formData.inquiryType}
-              onChange={handleInputChange}
-              required
-              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm text-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800  dark:focus:border-blue-400 dark:focus:ring-blue-800"
-            >
-              <option value="" className="text-gray-500">
-                Select inquiry type
-              </option>
-              <option value="general">General Inquiry</option>
-              <option value="support">Technical Support</option>
-              <option value="partnership">Partnership</option>
-              <option value="sales">Sales</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
 
           {/* Message */}
           <div>

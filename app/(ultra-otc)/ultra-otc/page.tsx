@@ -31,7 +31,7 @@ export default function Dashboard() {
 
         <HowItWorks currentTheme={currentTheme} />
 
-        <RelationshipDesk currentTheme={currentTheme} />
+        {/* <RelationshipDesk currentTheme={currentTheme} /> */}
       </section>
       <Footer />
     </>

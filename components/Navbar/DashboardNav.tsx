@@ -191,8 +191,9 @@ const DashboardNav = () => {
 
   const navLinks = [
     { name: "Feature", href: "/feature" },
+    { name: "Ultra OTC", href: "/ultra-otc" },
     { name: "About", href: "/about" },
-    { name: "Careers", href: "/careers" },
+    // { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact-us" },
   ]

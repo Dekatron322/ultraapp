@@ -282,6 +282,10 @@ body {
   @apply relative flex items-center gap-2 rounded-md bg-transparent   px-5 py-3 font-semibold  transition-all duration-300 hover:bg-[#193CB8] hover:text-[#ffffff] hover:shadow-lg max-sm:w-48 max-sm:justify-center;
 }
 
+.button-style4 {
+  @apply relative flex items-center gap-2 rounded-md bg-[#1447E6]  px-5 py-3 font-semibold text-[#FFFFFF] transition-all duration-300 hover:bg-[#193CB8] hover:shadow-lg max-sm:w-48 max-sm:justify-center;
+}
+
 .button-style {
   @apply relative flex items-center gap-2 rounded-md bg-[#1447E6]  px-5 py-3 font-semibold text-[#FFFFFF] transition-all duration-300 hover:bg-[#193CB8] hover:shadow-lg max-sm:w-48 max-sm:justify-center;
 }

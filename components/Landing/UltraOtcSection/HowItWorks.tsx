@@ -120,7 +120,7 @@ export default function HowItWorks({ currentTheme }: HowItWorksProps) {
                   </motion.p>
                 </div>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Trade with confidence and anonymity. There's no need to reveal your identity during the initial
+                  Trade with confidence and anonymity. There&apos;s no need to reveal your identity during the initial
                   quoting and negotiation phase, ensuring privacy for discreet transactions.
                 </motion.p>
 
@@ -285,7 +285,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Get in Touch</h2>
           <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-            Fill out the form below and we'll get back to you soon
+            Fill out the form below and we&apos;ll get back to you soon
           </p>
         </div>
 

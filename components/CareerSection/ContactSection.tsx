@@ -129,7 +129,7 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
       ),
       title: "Email Us",
       emails: [
-        { address: "admin@ultraapp.co", label: "Admin" },
+        { address: "info@ultraapp.co", label: "Admin" },
         { address: "support@ultraapp.co", label: "Support" },
         { address: "otc@ultraapp.co", label: "OTC" },
       ],

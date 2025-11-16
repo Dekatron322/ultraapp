@@ -79,11 +79,25 @@ export default function TeamSection({ currentTheme }: TeamSectionProps) {
                       CEO & Co-Founder
                     </motion.p>
                   </div>
-                 <div className="flex items-center gap-2">
-                    <Link href="https://www.instagram.com/tiago.eth?igsh=eHJja20xb3UyaGwy&utm_source=qr" target="_blank"><AiFillInstagram className="size-5" /></Link>
-                    <Link href="https://www.linkedin.com/in/thankgod-izime-99271a255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><FaLinkedin className="size-5" /></Link>
-                    <Link href="https://x.com/thankgodizime?s=21" target="_blank"><FaXTwitter className="size-5" /></Link>
-                    <Link href="mailto:thankgod.izime@myultraapp.com" target="_blank"><FaInbox className="size-5" /></Link>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href="https://www.instagram.com/tiago.eth?igsh=eHJja20xb3UyaGwy&utm_source=qr"
+                      target="_blank"
+                    >
+                      <AiFillInstagram className="size-5" />
+                    </Link>
+                    <Link
+                      href="https://www.linkedin.com/in/thankgod-izime-99271a255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                      target="_blank"
+                    >
+                      <FaLinkedin className="size-5" />
+                    </Link>
+                    <Link href="https://x.com/thankgodizime?s=21" target="_blank">
+                      <FaXTwitter className="size-5" />
+                    </Link>
+                    <Link href="mailto:thankgod.izime@ultraapp.co" target="_blank">
+                      <FaInbox className="size-5" />
+                    </Link>
                   </div>
                 </div>
               </div>

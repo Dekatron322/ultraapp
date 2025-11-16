@@ -147,7 +147,7 @@ const PrivacyPolicySection = ({ currentTheme }: PrivacyPolicySectionProps) => {
             </ul>
             <p className="smaller-text mb-4 font-semibold">
               IF YOU DO NOT AGREE WITH THIS PRIVACY POLICY, PLEASE DO NOT USE OUR SERVICES. If you have any questions or
-              concerns regarding this Privacy Policy, please contact us via email at support@myultraapp.com.
+              concerns regarding this Privacy Policy, please contact us via email at support@ultraapp.co.
             </p>
 
             <motion.h3 id="definitions" className="mb-3 mt-8 text-2xl font-semibold" variants={fadeInUp}>
@@ -557,7 +557,7 @@ const PrivacyPolicySection = ({ currentTheme }: PrivacyPolicySectionProps) => {
               <li>
                 Request access to the personal information we collect from you, change the information or delete it. To
                 request to review, update, or delete your personal information, please send us an email at
-                <Link href="mailto:support@myultraapp.com">support@myultraapp.com</Link>.
+                <Link href="mailto:support@ultraapp.co">support@ultraapp.co</Link>.
               </li>
             </ul>
 
@@ -575,7 +575,7 @@ const PrivacyPolicySection = ({ currentTheme }: PrivacyPolicySectionProps) => {
               <li>
                 If as a parent or guardian, you become aware that your child or ward has provided us with any personal
                 information without your consent, please contact us via email at{" "}
-                <Link href="mailto:support@myultraapp.com">support@myultraapp.com</Link>.
+                <Link href="mailto:support@ultraapp.co">support@ultraapp.co</Link>.
               </li>
             </ul>
 
@@ -612,7 +612,7 @@ const PrivacyPolicySection = ({ currentTheme }: PrivacyPolicySectionProps) => {
             <ul className="smaller-text mb-4 list-disc space-y-2 pl-6">
               <li>
                 If you have questions or comments about this notice, you may contact us by sending a mail to us via
-                email at support@myultraapp.com.
+                email at support@ultraapp.co.
               </li>
             </ul>
           </div>

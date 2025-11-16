@@ -129,8 +129,9 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
       ),
       title: "Email Us",
       emails: [
-        { address: "admin@myultraapp.com", label: "Admin" },
-        { address: "support@myultraapp.com", label: "Support" }
+        { address: "admin@ultraapp.co", label: "Admin" },
+        { address: "support@ultraapp.co", label: "Support" },
+        { address: "otc@ultraapp.co", label: "OTC" },
       ],
     },
     {
@@ -204,7 +205,7 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
                   <h4 className="large-text mb-1 text-lg font-semibold transition-colors duration-300 group-hover:text-blue-600">
                     {item.title}
                   </h4>
-                  
+
                   {/* Render emails individually if they exist */}
                   {item.emails ? (
                     <div className="space-y-1">
@@ -212,7 +213,7 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
                         <motion.a
                           key={emailIndex}
                           href={`mailto:${email.address}`}
-                          className="smaller-text block leading-relaxed text-blue-600 hover:text-blue-700 hover:underline transition-colors duration-200"
+                          className="smaller-text block leading-relaxed text-blue-600 transition-colors duration-200 hover:text-blue-700 hover:underline"
                           whileHover={{ x: 5 }}
                           transition={{ duration: 0.2 }}
                         >
@@ -224,7 +225,7 @@ const ContactSection = ({ currentTheme }: ContactSectionProps) => {
                     /* Render regular content for non-email items */
                     <motion.a
                       href={item.link}
-                      className="smaller-text block whitespace-pre-line leading-relaxed text-blue-600 hover:text-blue-700 hover:underline transition-colors duration-200"
+                      className="smaller-text block whitespace-pre-line leading-relaxed text-blue-600 transition-colors duration-200 hover:text-blue-700 hover:underline"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >

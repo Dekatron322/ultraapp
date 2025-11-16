@@ -95,8 +95,8 @@ export default function HowItWorks({ currentTheme }: HowItWorksProps) {
                 </div>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
                   Initiate contact via{" "}
-                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.com">
-                    otc@ultraapp.com
+                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.co">
+                    otc@ultraapp.co
                   </Link>{" "}
                   or by completing our secure online form—no personal details required upfront for small to mid-volume
                   trades.
@@ -371,8 +371,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         <div className="mt-4 text-center">
           <p className="text-xs text-gray-500 dark:text-gray-400">
             Or contact us directly at{" "}
-            <Link href="mailto:otc@ultraapp.com" className="text-blue-600 hover:underline dark:text-blue-400">
-              otc@ultraapp.com
+            <Link href="mailto:otc@ultraapp.co" className="text-blue-600 hover:underline dark:text-blue-400">
+              otc@ultraapp.co
             </Link>
           </p>
         </div>

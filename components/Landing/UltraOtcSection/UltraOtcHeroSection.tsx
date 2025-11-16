@@ -684,8 +684,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         <div className="mt-4 text-center">
           <p className="text-xs text-gray-500 dark:text-gray-400">
             Or contact us directly at{" "}
-            <Link href="mailto:otc@ultraapp.com" className="text-blue-600 hover:underline dark:text-blue-400">
-              otc@ultraapp.com
+            <Link href="mailto:otc@ultraapp.co" className="text-blue-600 hover:underline dark:text-blue-400">
+              otc@ultraapp.co
             </Link>
           </p>
         </div>

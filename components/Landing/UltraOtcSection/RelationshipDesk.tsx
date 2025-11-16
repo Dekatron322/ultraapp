@@ -68,8 +68,8 @@ export default function RelationshipDesk({ currentTheme }: ComingSoonProps) {
                 </motion.p>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
                   Email us at{" "}
-                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.com">
-                    otc@ultraapp.com
+                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.co">
+                    otc@ultraapp.co
                   </Link>{" "}
                 </motion.p>
               </div>
@@ -80,7 +80,7 @@ export default function RelationshipDesk({ currentTheme }: ComingSoonProps) {
                 </motion.p>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
                   Contact us via{" "}
-                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.com">
+                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.co">
                     Telegram
                   </Link>{" "}
                 </motion.p>
@@ -92,7 +92,7 @@ export default function RelationshipDesk({ currentTheme }: ComingSoonProps) {
                 </motion.p>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
                   Contact us via{" "}
-                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.com">
+                  <Link className="text-[#2B7FFF]" href="mailto:otc@ultraapp.co">
                     WhatsApp
                   </Link>{" "}
                 </motion.p>

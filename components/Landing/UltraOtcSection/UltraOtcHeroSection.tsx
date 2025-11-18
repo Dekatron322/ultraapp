@@ -543,29 +543,88 @@ interface ContactModalProps {
   onClose: () => void
 }
 
+// Inquiry Type Enum
+enum InquiryType {
+  General = 0,
+  Technical = 1,
+  Sales = 2,
+  Partnership = 3,
+  Otc = 4,
+  Other = 5,
+}
+
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    phone: "",
-    inquiryType: "",
+    phoneNumber: "",
+    inquiryType: InquiryType.General,
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState("")
+  const [isInquiryTypeOpen, setIsInquiryTypeOpen] = useState(false)
+
+  const inquiryOptions = [
+    { value: InquiryType.General, label: "General Inquiry" },
+    { value: InquiryType.Technical, label: "Technical Support" },
+    { value: InquiryType.Sales, label: "Sales" },
+    { value: InquiryType.Partnership, label: "Partnership" },
+    { value: InquiryType.Otc, label: "OTC Trading" },
+    { value: InquiryType.Other, label: "Other" },
+  ]
+
+  const selectedInquiryOption =
+    inquiryOptions.find((option) => option.value === formData.inquiryType) ?? inquiryOptions[0]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: name === "inquiryType" ? parseInt(value) : value,
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // You can add your API call here
-    onClose() // Close modal after submission
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+    setErrorMessage("")
+
+    try {
+      const response = await fetch("https://ultrapay-002-site1.qtempurl.com/ContactUs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus("success")
+        setFormData({
+          fullName: "",
+          email: "",
+          phoneNumber: "",
+          inquiryType: InquiryType.General,
+          message: "",
+        })
+        // Auto close after success
+        setTimeout(() => {
+          onClose()
+        }, 2000)
+      } else {
+        const errorData = await response.json()
+        setSubmitStatus("error")
+        setErrorMessage("Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      setSubmitStatus("error")
+      setErrorMessage("Network error. Please check your connection and try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (!isOpen) return null
@@ -600,6 +659,46 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           </p>
         </div>
 
+        {/* Success Message */}
+        {submitStatus === "success" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-4 rounded-lg bg-green-50 p-4 text-green-800 dark:bg-green-900/20 dark:text-green-300"
+          >
+            <div className="flex items-center">
+              <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Message sent successfully! We&apos;ll get back to you soon.
+            </div>
+          </motion.div>
+        )}
+
+        {/* Error Message */}
+        {submitStatus === "error" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-4 rounded-lg bg-red-50 p-4 text-red-800 dark:bg-red-900/20 dark:text-red-300"
+          >
+            <div className="flex items-center">
+              <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              {errorMessage}
+            </div>
+          </motion.div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Full Name */}
           <div>
@@ -613,14 +712,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               value={formData.fullName}
               onChange={handleInputChange}
               required
-              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
+              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm text-[#0a0a0a] focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
               placeholder="Enter your full name"
             />
           </div>
 
           {/* Email Address */}
           <div>
-            <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300 ">
               Email Address *
             </label>
             <input
@@ -630,28 +729,81 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               value={formData.email}
               onChange={handleInputChange}
               required
-              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
+              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm text-[#0a0a0a] focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
               placeholder="Enter your email address"
             />
           </div>
 
           {/* Phone Number */}
           <div>
-            <label htmlFor="phone" className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label htmlFor="phoneNumber" className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
               Phone Number
             </label>
             <input
               type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
+              id="phoneNumber"
+              name="phoneNumber"
+              value={formData.phoneNumber}
               onChange={handleInputChange}
-              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
+              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm text-[#0a0a0a] focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
               placeholder="Enter your phone number"
             />
           </div>
 
           {/* Inquiry Type */}
+          <div>
+            <label htmlFor="inquiryType" className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Inquiry Type *
+            </label>
+            <div className="relative">
+              <button
+                id="inquiryType"
+                type="button"
+                className="flex w-full items-center justify-between rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-left text-sm text-[#0a0a0a] focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
+                onClick={() => setIsInquiryTypeOpen((prev) => !prev)}
+              >
+                <span>{selectedInquiryOption?.label ?? "Select inquiry type"}</span>
+                <svg
+                  className="ml-2 h-4 w-4 text-gray-500 dark:text-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.061l-4.24 4.25a.75.75 0 01-1.06 0l-4.25-4.25a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+
+              {isInquiryTypeOpen && (
+                <div className="absolute z-20 mt-1 w-full rounded-lg border border-gray-200 bg-white py-1 text-sm shadow-lg dark:border-gray-700 dark:bg-gray-900">
+                  {inquiryOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      type="button"
+                      className={`flex w-full cursor-pointer items-center px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                        option.value === formData.inquiryType
+                          ? "bg-gray-50 font-medium text-gray-900 dark:bg-gray-800 dark:text-white"
+                          : "text-gray-700 dark:text-gray-300"
+                      }`}
+                      onClick={() => {
+                        setFormData((prev) => ({
+                          ...prev,
+                          inquiryType: option.value,
+                        }))
+                        setIsInquiryTypeOpen(false)
+                      }}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
 
           {/* Message */}
           <div>
@@ -665,7 +817,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               onChange={handleInputChange}
               required
               rows={4}
-              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
+              className="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-3 text-sm text-[#0a0a0a] focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-blue-400 dark:focus:ring-blue-800"
               placeholder="Tell us how we can help you..."
             />
           </div>
@@ -673,11 +825,34 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           {/* Submit Button */}
           <motion.button
             type="submit"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800"
+            disabled={isSubmitting}
+            whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+            whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+            className="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-50 dark:focus:ring-blue-800"
           >
-            Send Message
+            {isSubmitting ? (
+              <div className="flex items-center justify-center">
+                <svg className="mr-2 h-4 w-4 animate-spin" viewBox="0 0 24 24">
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    fill="none"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  />
+                </svg>
+                Sending...
+              </div>
+            ) : (
+              "Send Message"
+            )}
           </motion.button>
         </form>
 

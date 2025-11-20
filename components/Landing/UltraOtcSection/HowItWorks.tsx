@@ -280,7 +280,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     setErrorMessage("")
 
     try {
-      const response = await fetch("https://ultrapay-002-site1.qtempurl.com/ContactUs", {
+      const response = await fetch("https://ultra-service-79baffa4bc31.herokuapp.com/ContactUs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

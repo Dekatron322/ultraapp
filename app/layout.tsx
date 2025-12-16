@@ -89,6 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="facebook-domain-verification" content="bh2lp1vm5r6a6m47eyr3pxuen7skom" />
       </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>

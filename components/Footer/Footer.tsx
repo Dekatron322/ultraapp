@@ -130,6 +130,11 @@ const Footer = () => {
                   Privacy policy
                 </Link>
               </li>
+              <li>
+                <Link href="/delete-account" className="transition-colors hover:text-white">
+                  Delete Account
+                </Link>
+              </li>
             </ul>
 
             {/* Newsletter Subscription */}

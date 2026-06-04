@@ -32,7 +32,7 @@ export default function Dashboard() {
 
         <CoreValues currentTheme={currentTheme} />
 
-        <TeamSection currentTheme={currentTheme} />
+        {/* <TeamSection currentTheme={currentTheme} /> */}
 
         <GetUltraApp currentTheme={currentTheme} />
       </section>

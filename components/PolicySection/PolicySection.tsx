@@ -302,6 +302,62 @@ const PrivacyPolicySection = ({ currentTheme }: PrivacyPolicySectionProps) => {
               </li>
             </ul>
 
+            <motion.h4 id="biometric-face-data" className="mb-2 mt-6 text-xl font-semibold" variants={fadeInUp}>
+              f) Biometric and Face Data
+            </motion.h4>
+            <ul className="smaller-text mb-4 list-disc space-y-2 pl-6">
+              <li>
+                <strong>Face Data for Identity Verification (KYC):</strong> During account registration or when
+                required for identity verification, our app may request access to your device&apos;s camera to capture a
+                live selfie or facial image. This face data is collected solely for the purpose of Know Your Customer
+                (KYC) identity verification and Anti-Money Laundering (AML) compliance, as required by applicable law
+                and financial regulations.
+              </li>
+              <li>
+                <strong>Ultra Does Not Retain Face Data:</strong> Ultra does not store, retain, or have ongoing access
+                to your facial image or any biometric data derived from it. Your face data is captured in real time and
+                transmitted directly and securely to our third-party identity verification provider for processing. Once
+                the verification is complete, Ultra does not maintain any copy of the face data on its servers.
+              </li>
+              <li>
+                <strong>Third-Party Sharing — Dojah Inc.:</strong> Your face data is shared with{" "}
+                <strong>Dojah Inc.</strong>, our third-party identity verification provider, for the sole purpose of
+                completing KYC identity verification and AML compliance checks. Dojah processes the face data to
+                compare your live selfie against your government-issued identification documents to confirm your
+                identity.
+                <ul className="list-circle mt-2 space-y-2 pl-6">
+                  <li>
+                    <strong>Dojah&apos;s Storage Practices:</strong> Dojah may retain your face data and verification
+                    records in accordance with their own data retention policies and applicable regulatory requirements.
+                    Dojah stores this data securely using industry-standard encryption and security measures. Retention
+                    periods are determined by Dojah in compliance with applicable laws and may vary by jurisdiction.
+                  </li>
+                  <li>
+                    <strong>Dojah&apos;s Privacy Policy:</strong> For full details on how Dojah collects, uses, stores,
+                    and protects your data, please review Dojah&apos;s Privacy Policy at{" "}
+                    <Link href="https://www.dojah.io/privacy-policy" target="_blank" rel="noopener noreferrer">
+                      https://www.dojah.io/privacy-policy
+                    </Link>
+                    .
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>No Other Third-Party Sharing:</strong> We do not sell, lease, trade, or otherwise share your
+                face data with any other third parties beyond what is described above. Face data is used exclusively
+                for identity verification and is not used for advertising, analytics, or any other commercial purpose.
+              </li>
+              <li>
+                <strong>Face ID / Biometric Authentication (On-Device):</strong> Our app may offer Face ID or other
+                biometric authentication (e.g., fingerprint) as a convenience feature for logging in or authorising
+                transactions. This biometric authentication is handled entirely by your device&apos;s operating system
+                (e.g., Apple&apos;s Face ID uses the Secure Enclave on iOS devices). Ultra never accesses, collects, stores,
+                or processes the underlying Face ID biometric data. The Face ID authentication data never leaves your
+                device and is not transmitted to Ultra or any third party. We only receive a success or failure
+                confirmation from your device&apos;s operating system.
+              </li>
+            </ul>
+
             <motion.h3 id="purpose-limitation" className="mb-3 mt-8 text-2xl font-semibold" variants={fadeInUp}>
               5. PURPOSE LIMITATION
             </motion.h3>
@@ -640,6 +696,7 @@ const PrivacyPolicySection = ({ currentTheme }: PrivacyPolicySectionProps) => {
                 { href: "#definitions", text: "2. Definitions" },
                 { href: "#consent", text: "3. Consent" },
                 { href: "#information-collection", text: "4. Information Collection" },
+                { href: "#biometric-face-data", text: "   4(f). Biometric & Face Data" },
                 { href: "#purpose-limitation", text: "5. Purpose Limitation" },
                 { href: "#data-minimization", text: "6. Data Minimization" },
                 { href: "#why-collect", text: "7. Why We Collect" },

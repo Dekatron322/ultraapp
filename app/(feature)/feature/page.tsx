@@ -34,9 +34,9 @@ export default function Dashboard() {
 
         <KeyFeatureSection currentTheme={currentTheme} />
 
-        <FeatureComingSoon currentTheme={currentTheme} />
+        {/* <FeatureComingSoon currentTheme={currentTheme} /> */}
 
-        <GetUltraApp currentTheme={currentTheme} />
+        {/* <GetUltraApp currentTheme={currentTheme} /> */}
 
         <FAQSection currentTheme={currentTheme} />
       </section>

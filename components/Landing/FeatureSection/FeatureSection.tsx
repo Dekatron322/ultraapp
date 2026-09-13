@@ -418,7 +418,7 @@ const FeatureSection = ({ currentTheme }: FeatureSectionProps) => {
               Multi-Currency Global Accounts
             </h3>
             <p className={`mt-2 text-sm md:text-base leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
-              Hold, receive, and manage funds in 40+ currencies with native account numbers, local clearing rails, and zero maintenance fees.
+              Hold, receive, and manage funds in 50+ currencies with native account numbers, local clearing rails, and zero maintenance fees.
             </p>
           </div>
 

@@ -69,7 +69,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
               Used and trusted by a community of <span className="crypto-text">millions</span>
             </motion.h2>
             <motion.p className="small-text mt-2 dark:text-gray-300 max-md:text-center" variants={fadeInUp}>
-              UltraApp is transforming digital finance globally with 15,000+ users. Our platform makes modern money
+              UltraApp is transforming digital finance globally with over 1M+ active users. Our platform makes modern money
               management simple, fast, and secure for everyday use.
             </motion.p>
 
@@ -107,7 +107,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
           ) : (
             <img src="/icons/download.svg" alt="Download" />
           )}
-          <h3 className="text-5xl font-semibold max-sm:text-2xl">19K</h3>
+          <h3 className="text-5xl font-semibold max-sm:text-2xl">2.5M+</h3>
           <p>App downloads</p>
         </div>
         <div className="border-style flex items-center gap-2 rounded-2xl  p-2">
@@ -116,7 +116,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
           ) : (
             <img src="/icons/user.svg" alt="Download" />
           )}
-          <h3 className="text-5xl font-semibold max-sm:text-2xl">16K</h3>
+          <h3 className="text-5xl font-semibold max-sm:text-2xl">1.8M+</h3>
           <p>Active users</p>
         </div>
         <div className="border-style flex items-center gap-2 rounded-2xl  p-2">
@@ -125,7 +125,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
           ) : (
             <img src="/icons/wallet.svg" alt="Download" />
           )}
-          <h3 className="text-5xl font-semibold max-sm:text-2xl">14K</h3>
+          <h3 className="text-5xl font-semibold max-sm:text-2xl">1.5M+</h3>
           <p>Accounts Created</p>
         </div>
       </div>

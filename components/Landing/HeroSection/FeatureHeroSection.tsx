@@ -141,7 +141,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
         <HeroButtons svgVariants={svgVariants} onDownloadClick={() => setIsDownloadModalOpen(true)} />
       </div>
 
-      <HeroImages />
+      {/* <HeroImages /> */}
 
       <TextAnimationStyles />
 

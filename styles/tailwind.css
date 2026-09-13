@@ -11,6 +11,7 @@
 body {
   background-color: #ffffff;
   color: #1e1e1e;
+  transition: background-color 0.25s ease, color 0.25s ease;
   font-family:
     var(--font-manrope),
     "Manrope",
@@ -635,7 +636,9 @@ body {
   @apply text-[#BACAF5];
 }
 
-[data-theme="dark"] body {
+[data-theme="dark"] body,
+.dark body,
+html.dark body {
   background-color: #030712;
   color: #fbfafc;
 }

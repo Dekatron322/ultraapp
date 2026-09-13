@@ -35,9 +35,9 @@ const Footer = () => {
               <UltraLogoDark className="h-10 w-auto" />
             )}
             <p className="mb-4 max-w-md text-gray-400">
-              Ultra is a technology platform - it is not a bank and does not hold or claim to hold a banking license.
-              The banking services/financial services offered on the Ultra platform are provided by licensed banks and
-              financial institutions.
+              Ultra is a licensed fintech and financial service provider, trusted by over 1 million+ customers. We
+              partner with leading global financial institutions to facilitate seamless cross-border payments,
+              collections, and settlements.
             </p>
           </div>
 

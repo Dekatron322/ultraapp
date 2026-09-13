@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
 
 interface FAQItem {
   id: number
@@ -13,8 +14,16 @@ interface FAQSectionProps {
   currentTheme: string | undefined
 }
 
-export default function FAQSection({ currentTheme }: FAQSectionProps) {
+export default function FAQSection({ currentTheme: propTheme }: FAQSectionProps) {
   const [openItem, setOpenItem] = useState<number | null>(null)
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const currentTheme = resolvedTheme || theme || propTheme || "light"
 
   const faqData: FAQItem[] = [
     {

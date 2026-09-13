@@ -1,6 +1,7 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { useTheme } from "next-themes"
 import Image from "next/image"
 import LogoIcon from "public/icons/logo-icon"
 import LogoIconDark from "public/icons/logo-icon-dark"
@@ -133,9 +134,17 @@ interface FeatureSectionProps {
   currentTheme: string | undefined
 }
 
-const KeyFeatureSection = ({ currentTheme }: FeatureSectionProps) => {
+const KeyFeatureSection = ({ currentTheme: propTheme }: FeatureSectionProps) => {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
-  const isDark = currentTheme === "dark"
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const currentTheme = resolvedTheme || theme || propTheme || "light"
+  const isDark = mounted ? currentTheme === "dark" : propTheme === "dark"
 
   // Interactive state for tabs / preview
   const [activeCurrency, setActiveCurrency] = useState<"USD" | "EUR" | "GBP" | "CAD">("USD")

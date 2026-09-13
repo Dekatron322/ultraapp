@@ -127,7 +127,7 @@ const DownloadAppModal: React.FC<DownloadAppModalProps> = ({ isOpen, onClose }) 
 }
 
 const DashboardNav = () => {
-  const { theme, setTheme, systemTheme } = useTheme()
+  const { theme, setTheme, systemTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [currentTime, setCurrentTime] = useState(new Date())
   const pathname = usePathname()
@@ -145,8 +145,8 @@ const DashboardNav = () => {
     return () => clearInterval(intervalId)
   }, [])
 
-  // Get the actual current theme, considering system preference
-  const currentTheme = theme === "system" ? systemTheme : theme
+  // Get the actual current theme, considering system preference & resolvedTheme
+  const currentTheme = resolvedTheme || (theme === "system" ? systemTheme : theme) || "light"
 
   const toggleTheme = () => {
     // Toggle based on the actual current theme

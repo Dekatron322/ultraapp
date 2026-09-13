@@ -9,11 +9,12 @@ import { useRouter } from "next/navigation"
 
 const ProjectsNav = () => {
   const [loading, setLoading] = useState(true)
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [isMoonIcon, setIsMoonIcon] = useState(true)
   const [currentTime, setCurrentTime] = useState(new Date())
   const router = useRouter()
-  const isDarkMode = theme === "dark"
+  const currentTheme = resolvedTheme || theme || "light"
+  const isDarkMode = currentTheme === "dark"
 
   const toggleIcon = () => {
     setIsMoonIcon(!isMoonIcon)

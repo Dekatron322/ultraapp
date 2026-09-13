@@ -152,8 +152,8 @@ const DeleteAccountSection = ({ currentTheme }: DeleteAccountSectionProps) => {
               <div className="space-y-4">
                 {[
                   {
-                    title: "Asset and Wallet Loss",
-                    desc: "Any remaining crypto balances, fiat wallets, or rewards must be withdrawn prior to deletion. Leftover assets will be permanently inaccessible.",
+                    title: "Account Balance and Wallet Loss",
+                    desc: "Any remaining account balances, wallets, or rewards must be withdrawn prior to deletion. Leftover funds will be permanently inaccessible.",
                     icon: <FiTrash2 className="size-5 text-red-500" />,
                   },
                   {

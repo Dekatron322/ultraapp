@@ -39,8 +39,7 @@ const ProjectsNav = () => {
   }
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString("en-NG", {
-      timeZone: "Africa/Lagos",
+    return date.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",

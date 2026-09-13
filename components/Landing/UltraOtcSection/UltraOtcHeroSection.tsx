@@ -15,9 +15,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
   const [typedLetters, setTypedLetters] = useState<Set<string>>(new Set())
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
-  const [showCoins, setShowCoins] = useState(false)
   const animationStarted = useRef(false)
-
   const fullText = "Experience Deep Liquidity & Private Wealth Execution on Ultra OTC Desk"
   const words = fullText.split(" ")
 
@@ -47,15 +45,6 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
     typeText()
   }, [fullText])
 
-  // Show coins after a delay to ensure they load last
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowCoins(true)
-    }, 1000) // 1 second delay to ensure other content loads first
-
-    return () => clearTimeout(timer)
-  }, [])
-
   const isLetterTyped = (positionIndex: number, letter: string) => {
     return typedLetters.has(`${positionIndex}-${letter}`)
   }
@@ -70,10 +59,10 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
   const renderAnimatedText = () => {
     return words.map((word, wordIndex) => {
       const letters = word.split("")
-      const isCryptoWord = word === "UltraApp"
+      const isHighlightedWord = word === "UltraApp"
 
       const wordElement = (
-        <span key={`word-${wordIndex}`} className={`word ${isCryptoWord ? "crypto-text" : ""}`}>
+        <span key={`word-${wordIndex}`} className={`word ${isHighlightedWord ? "crypto-text" : ""}`}>
           {letters.map((letter, letterIndex) => {
             const currentPosition = positionIndex++
             const isTyped = isLetterTyped(currentPosition, letter)
@@ -137,9 +126,6 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
     >
       <div className="absolute inset-0 bg-white/5 dark:bg-black/5"></div>
 
-      {/* Coins Section - Conditionally rendered */}
-      {showCoins && <CoinsSection />}
-
       <div className="large-text relative z-10 mx-auto mt-10 flex w-full max-w-6xl flex-col items-center justify-center text-center md:mt-48 md:px-10">
         <motion.div
           className="text-4xl font-bold leading-tight max-sm:text-4xl md:text-6xl lg:text-7xl"
@@ -195,7 +181,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
         </motion.div>
       </div>
 
-      <HeroImages />
+      {/* <HeroImages /> */}
 
       <TextAnimationStyles />
 
@@ -205,132 +191,6 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
   )
 }
 
-function CoinsSection() {
-  const coinVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-    float: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  }
-
-  return (
-    <>
-      {/* Left Side Coins */}
-      <div>
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[60%] z-0 flex flex-col md:left-[500px]"
-        >
-          <Image
-            src="/coins/doge.png"
-            alt="Dogecoin"
-            width={153}
-            height={109}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[67%]  flex flex-col md:left-[48%]"
-        >
-          <Image
-            src="/coins/bitcoin2.png"
-            alt="Bitcoin"
-            width={79}
-            height={62}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[80%] z-0 flex flex-col md:left-[750px]"
-        >
-          <Image
-            src="/coins/bitcoin3.png"
-            alt="Bitcoin"
-            width={92}
-            height={76}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[95%] z-0 flex flex-col md:left-[800px]"
-        >
-          <Image
-            src="/coins/bitcoin4.png"
-            alt="Bitcoin"
-            width={57}
-            height={47}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-      </div>
-
-      {/* Right Side Coins */}
-      <div>
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          className="absolute right-4 top-[60%] z-0 flex flex-col gap-8 md:right-[33%]"
-        >
-          <Image
-            src="/coins/dai.png"
-            alt="DAI"
-            width={44}
-            height={62}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.7 }}
-          className="absolute right-4 top-[80%] z-0 flex flex-col gap-8 md:right-[25%]"
-        >
-          <Image
-            src="/coins/eth.png"
-            alt="USDC"
-            width={134}
-            height={115}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-      </div>
-    </>
-  )
-}
 
 function HeroButtons({ svgVariants, onDownloadClick }: { svgVariants: any; onDownloadClick: () => void }) {
   return (
@@ -437,7 +297,7 @@ const DownloadAppModal: React.FC<DownloadAppModalProps> = ({ isOpen, onClose }) 
   const smartDownloadUrl = "https://qr-code-sand-seven.vercel.app/"
 
   // Direct URLs for the buttons
-  const appStoreUrl = "https://apps.apple.com/ng/app/ultra-app/id6450269232"
+  const appStoreUrl = "https://apps.apple.com/app/ultra-app/id6450269232"
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.ahmadhabib.ultraappfrontend"
 
   return (
@@ -784,11 +644,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <button
                       key={option.value}
                       type="button"
-                      className={`flex w-full cursor-pointer items-center px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 ${
-                        option.value === formData.inquiryType
-                          ? "bg-gray-50 font-medium text-gray-900 dark:bg-gray-800 dark:text-white"
-                          : "text-gray-700 dark:text-gray-300"
-                      }`}
+                      className={`flex w-full cursor-pointer items-center px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-800 ${option.value === formData.inquiryType
+                        ? "bg-gray-50 font-medium text-gray-900 dark:bg-gray-800 dark:text-white"
+                        : "text-gray-700 dark:text-gray-300"
+                        }`}
                       onClick={() => {
                         setFormData((prev) => ({
                           ...prev,

@@ -137,7 +137,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Discover the latest insights, trends, and guides in the world of cryptocurrency and blockchain technology.
+          Discover the latest insights, trends, and guides in the world of modern financial technology.
         </motion.p>
       </div>
 

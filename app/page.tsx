@@ -60,13 +60,13 @@ export default function Dashboard() {
 
         <FeatureSection currentTheme={currentTheme} />
 
-        <ComingSoon currentTheme={currentTheme} />
+        {/* <ComingSoon currentTheme={currentTheme} /> */}
 
         <TestimonialSection currentTheme={currentTheme} />
 
-        <BlogSection currentTheme={currentTheme} />
+        {/* <BlogSection currentTheme={currentTheme} /> */}
 
-        <DownloadSection currentTheme={currentTheme} />
+        {/* <DownloadSection currentTheme={currentTheme} /> */}
       </section>
       <Footer />
     </>

@@ -197,28 +197,28 @@ export default function Blogs({ currentTheme }: BlogsProps) {
   const getSampleBlogs = (): Blog[] => [
     {
       id: "1",
-      title: "Crypto made simple: A beginner's roadmap to digital currency",
+      title: "Smart money management: A beginner's roadmap to digital finance",
       category: "Beginner",
       author: "Sarah Johnson",
       date: "2024-01-15",
       readTime: "5 min read",
       description:
-        "A beginner-friendly guide to crypto: what it is, why it matters, and how to safely get started with digital currencies.",
+        "A beginner-friendly guide to digital finance: how to automate savings, send global transfers, and manage your budget.",
       image: "/blog-light.png",
-      tags: ["Crypto", "Beginner", "Guide"],
-      slug: "crypto-made-simple",
+      tags: ["Finance", "Beginner", "Guide"],
+      slug: "smart-money-management",
     },
     {
       id: "2",
-      title: "Understanding Blockchain Technology",
+      title: "Understanding Next-Gen Payment Systems for Business",
       category: "Technical",
       author: "Mike Chen",
       date: "2024-01-12",
       readTime: "8 min read",
-      description: "Deep dive into blockchain technology and its applications beyond cryptocurrency.",
+      description: "Deep dive into real-time payment technology and modern cross-border financial rails.",
       image: "/blog-light.png",
-      tags: ["Blockchain", "Technology", "Web3"],
-      slug: "understanding-blockchain",
+      tags: ["Fintech", "Technology", "Payments"],
+      slug: "next-gen-payment-systems",
     },
   ]
 
@@ -267,8 +267,7 @@ export default function Blogs({ currentTheme }: BlogsProps) {
                 Articles for <span className="crypto-text">You</span>
               </motion.h2>
               <motion.p className="small-text mt-4 max-w-2xl text-xl max-md:text-center" variants={fadeInUp}>
-                Discover the latest insights, trends, and guides in the world of cryptocurrency and blockchain
-                technology.
+                Discover the latest insights, trends, and guides in the world of modern financial technology.
               </motion.p>
             </div>
 

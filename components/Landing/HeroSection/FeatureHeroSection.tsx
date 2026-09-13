@@ -14,7 +14,6 @@ interface HeroSectionProps {
 export default function HeroSection({ mounted, currentTheme }: HeroSectionProps) {
   const [typedLetters, setTypedLetters] = useState<Set<string>>(new Set())
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
-  const [showCoins, setShowCoins] = useState(false)
   const animationStarted = useRef(false)
 
   const fullText = "Powerful features from  UltraApp"
@@ -45,15 +44,6 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
 
     typeText()
   }, [fullText])
-
-  // Show coins after a delay to ensure they load last
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowCoins(true)
-    }, 1000) // 1 second delay to ensure other content loads first
-
-    return () => clearTimeout(timer)
-  }, [])
 
   const isLetterTyped = (positionIndex: number, letter: string) => {
     return typedLetters.has(`${positionIndex}-${letter}`)
@@ -128,9 +118,6 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
     >
       <div className="absolute inset-0 bg-white/5 dark:bg-black/5"></div>
 
-      {/* Coins Section - Conditionally rendered */}
-      {showCoins && <CoinsSection />}
-
       <div className="large-text relative z-10 mx-auto mt-10 flex w-full max-w-6xl flex-col items-center justify-center text-center md:mt-48 md:px-10">
         <motion.div
           className="text-5xl font-bold leading-tight max-sm:text-4xl md:text-6xl lg:text-7xl"
@@ -147,7 +134,7 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Buy, sell and swap over 20 cryptocurrencies with easy, make instant transfers, pay bills, and explore Web3 all
+          Manage your money effortlessly, make instant transfers, pay bills, and streamline your finances all
           in one secure, easy-to-use app.
         </motion.p>
 
@@ -160,133 +147,6 @@ export default function HeroSection({ mounted, currentTheme }: HeroSectionProps)
 
       <DownloadAppModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
     </motion.div>
-  )
-}
-
-function CoinsSection() {
-  const coinVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-    float: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  }
-
-  return (
-    <>
-      {/* Left Side Coins */}
-      <div>
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[60%] z-0 flex flex-col md:left-[500px]"
-        >
-          <Image
-            src="/coins/doge.png"
-            alt="Dogecoin"
-            width={153}
-            height={109}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[67%]  flex flex-col md:left-[48%]"
-        >
-          <Image
-            src="/coins/bitcoin2.png"
-            alt="Bitcoin"
-            width={79}
-            height={62}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[80%] z-0 flex flex-col md:left-[750px]"
-        >
-          <Image
-            src="/coins/bitcoin3.png"
-            alt="Bitcoin"
-            width={92}
-            height={76}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.4 }}
-          className="absolute left-10 top-[95%] z-0 flex flex-col md:left-[800px]"
-        >
-          <Image
-            src="/coins/bitcoin4.png"
-            alt="Bitcoin"
-            width={57}
-            height={47}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-      </div>
-
-      {/* Right Side Coins */}
-      <div>
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          className="absolute right-4 top-[60%] z-0 flex flex-col gap-8 md:right-[33%]"
-        >
-          <Image
-            src="/coins/dai.png"
-            alt="DAI"
-            width={44}
-            height={62}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate={["visible", "float"]}
-          variants={coinVariants}
-          transition={{ delay: 0.7 }}
-          className="absolute right-4 top-[80%] z-0 flex flex-col gap-8 md:right-[25%]"
-        >
-          <Image
-            src="/coins/eth.png"
-            alt="USDC"
-            width={134}
-            height={115}
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
-          />
-        </motion.div>
-      </div>
-    </>
   )
 }
 
@@ -322,9 +182,9 @@ function HeroImages() {
       transition={{ duration: 0.6, delay: 0.8 }}
     >
       <motion.img
-        src="/featureHero.png"
-        alt="decorative line"
-        className="z-5 w-[336px] max-w-full"
+        src="/hero-app.png"
+        alt="UltraApp Global Finance Interface"
+        className="z-5 w-[336px] max-w-full rounded-2xl"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{

@@ -16,7 +16,7 @@ const gilroy = localFont({
 
 export const metadata: Metadata = {
   title: "Ultra",
-  description: "Take Control of Your Finances - Beyond Banking, Into Crypto",
+  description: "Take Control of Your Finances - Modern Global Money Management",
   icons: {
     icon: [
       {

@@ -17,7 +17,7 @@ const DownloadAppModal: React.FC<DownloadAppModalProps> = ({ isOpen, onClose }) 
   const smartDownloadUrl = "https://qr-code-sand-seven.vercel.app/"
 
   // Direct URLs for the buttons
-  const appStoreUrl = "https://apps.apple.com/ng/app/ultra-app/id6450269232"
+  const appStoreUrl = "https://apps.apple.com/app/ultra-app/id6450269232"
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.ahmadhabib.ultraappfrontend"
 
   return (

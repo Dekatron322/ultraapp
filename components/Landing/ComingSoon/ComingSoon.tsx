@@ -58,29 +58,29 @@ export default function ComingSoon({ currentTheme }: ComingSoonProps) {
               <div className="flex-col gap-2">
                 <Image src="/icons/lending.png" alt="Lending" width={40} height={40} />
                 <motion.p className="mt-2 text-xl" variants={fadeInUp}>
-                  Lending and Borrowing Made Easy
+                  Lending and Financing Made Easy
                 </motion.p>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Access flexible lending options and borrow against your crypto assets effortlessly.
+                  Access flexible financing options and manage cashflow effortlessly.
                 </motion.p>
               </div>
 
               <div className="flex-col gap-2">
                 <Image src="/icons/stake.png" alt="Stake" width={40} height={40} />
                 <motion.p className="small-text mt-2 text-xl" variants={fadeInUp}>
-                  Stake Your Crypto for Rewards
+                  Smart Savings & High-Yield Rewards
                 </motion.p>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Earn passive income by staking your cryptocurrencies with UltraApp.
+                  Earn passive interest and high-yield returns with automated savings in UltraApp.
                 </motion.p>
               </div>
               <div className="flex-col gap-2">
                 <Image src="/icons/card.png" alt="Debit" width={40} height={40} />
                 <motion.p className="small-text mt-2 text-lg dark:text-gray-300" variants={fadeInUp}>
-                  Spend Crypto with a Debit Card
+                  Smart Multi-Currency Debit Card
                 </motion.p>
                 <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Make real-time payments at merchants using your crypto.
+                  Make real-time payments at millions of merchants worldwide.
                 </motion.p>
               </div>
               <div className="flex-col gap-2">

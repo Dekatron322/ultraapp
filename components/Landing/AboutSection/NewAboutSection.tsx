@@ -39,26 +39,24 @@ const NewAboutSection = ({ currentTheme }: FeatureSectionProps) => {
         </div>
 
         <div className="smaller-text">
-          <p className="max-md:text-center max-md:text-sm">
-            Empowering The Globe to Seamlessly Access Crypto and Web3 Finance
+          <p className="max-md:text-center max-md:text-sm font-medium">
+            Empowering The Globe to Seamlessly Access Modern Digital Finance
           </p>
           <p className="mt-2 max-md:text-center max-md:text-sm">
-            Ultra App is a next-generation fintech and crypto platform designed to make cryptocurrency and Web3 finance
-            simple, secure, and accessible for every individual. We bridge the gap between traditional finance and
-            decentralized systems through an all-in-one mobile experience thats as easy to use as your everyday banking
-            app.
+            Ultra App is a next-generation fintech platform designed to make digital money management
+            simple, secure, and accessible for every individual. We provide an all-in-one mobile experience
+            that makes everyday finances effortless.
           </p>
 
           <p className="my-2 max-md:text-center max-md:text-sm">
-            At Ultra, we believe digital finance should be effortless. That&apos;s why we’ve built a unified platform
-            that allows users to buy and sell crypto with Fiat, swap between cryptocurrencies, send and receive
-            payments, pay bills, and manage everyday financial transactions, all in one app.
+            At Ultra, we believe digital finance should be seamless. That&apos;s why we&apos;ve built a unified platform
+            that allows users to send and receive payments globally, convert currencies instantly, pay bills,
+            and manage everyday financial transactions, all in one app.
           </p>
           <p className="max-md:text-center max-md:text-sm">
-            Our ecosystem includes innovative solutions we&apos;re building such as Ultra Vault, a secure digital asset
-            storage system, and the Ultra Crypto Virtual Debit Card, which enables convenient tap-to-pay and online
-            purchases via Apple Pay. We&apos;re also developing DeFi lending and borrowing features to give users
-            greater financial freedom and control over their digital assets.
+            Our ecosystem includes innovative solutions such as Ultra Vault, secure multi-currency accounts,
+            and the Ultra Virtual Debit Card, which enables convenient tap-to-pay and online purchases
+            via Apple Pay and Google Pay, giving you greater financial freedom and effortless control over your money.
           </p>
         </div>
       </div>

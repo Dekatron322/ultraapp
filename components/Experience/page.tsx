@@ -6,26 +6,26 @@ const Experience = () => {
   const experiences = [
     {
       company: "MinieMoney",
-      location: "Lagos, Nigeria",
+      location: "Remote",
       position: "Lead Product Designer",
       period: "Jul. 2022 - Present",
       achievements: [
-        "Leading the design and ideation of the product, resulting in undisclosed seed funding from Microtraction.",
+        "Leading the design and ideation of the product, resulting in undisclosed seed funding from venture partners.",
         "Collaborating closely with stakeholders to ensure premium quality for a successful product launch.",
         "Iterated on the onboarding flow, resulting in a 65% increase in sign-ups and registrations.",
         "Improving design and overall performance of the product features, achieving an 80% improvement in user experience, thereby boosting product usage.",
       ],
     },
     {
-      company: "Stacks Open Internet Foundation",
+      company: "Open Internet Foundation",
       location: "New York, United States",
       position: "Product Designer (Grantee)",
       period: "Apr. 2022 - Aug. 2022",
       achievements: [
-        "Awarded a grant of $38,400 to lead the user interface and experience design for STALLET, a dApp Mobile Wallet aimed at onboarding millions of Non-Crypto Savvy Users into the world of web3 blockchain. Focused on providing intuitive guidance throughout wallet creation and connection processes, STALLET serves as a user-centered gateway to the blockchain ecosystem.",
-        "Conducted comprehensive UX research, competitive analysis, developed user personas, user journeys, and empathy maps to inform the design and development of STALLET. Leveraged insights to create a seamless and user-friendly experience tailored to the needs of non-crypto savvy users.",
-        "Contributed to the development of STALLET's design system, an open-source framework enabling easy reuse of design components for similar products. Empowered individuals, teams, and entrepreneurs to build user-centric dApp mobile wallets by leveraging the design system.",
-        "The successful execution of this grant resulted in the building of STALLET, an all-in-one cross-chain decentralized mobile wallet built on the Stacks blockchain ecosystem. Designed to facilitate day-to-day crypto and blockchain activities including DeFi, Cross-Chain Exchange, NFT, GameFi, and Metaverse, with a primary focus on enhancing accessibility for non-crypto savvy users.",
+        "Awarded a grant of $38,400 to lead the user interface and experience design for modern digital mobile wallets aimed at onboarding millions of everyday users into modern digital banking. Focused on providing intuitive guidance throughout account creation and connection processes.",
+        "Conducted comprehensive UX research, competitive analysis, developed user personas, user journeys, and empathy maps to inform the design and development of digital financial tools. Leveraged insights to create a seamless and user-friendly experience tailored to the needs of modern users.",
+        "Contributed to the development of design systems, an open-source framework enabling easy reuse of design components for similar products. Empowered individuals, teams, and entrepreneurs to build user-centric mobile applications by leveraging the design system.",
+        "The successful execution of this grant resulted in building an all-in-one cross-border digital financial platform designed to facilitate day-to-day multi-currency exchange and payments, with a primary focus on enhancing accessibility for global users.",
       ],
     },
     {
@@ -35,10 +35,10 @@ const Experience = () => {
       period: "Jan. 2022 - Jun. 2022",
       achievements: [
         "Worked on four innovative products: Aloe Capital, Lumen Energy, OpenGuild, and 101.xyz.",
-        "Designed the v1 of Aloe Capital, reimagining decentralized lending by simplifying the experience and reducing complexity by 74%.",
+        "Designed the v1 of Aloe Capital, reimagining automated lending by simplifying the experience and reducing complexity by 74%.",
         "Designed the v1 of Lumen Energy, unlocking the potential of clean energy technologies for millions of buildings, decarbonizing the future, and reducing the carbon footprint by 16%.",
-        "Played a pivotal role in designing OpenGuild, resulting in a play-to-earn gaming yield of over 900%+ and securing a $1 million commitment to Pegaxy assets and games.",
-        "Contributed to the design of 101.xyz, decentralizing the online course space and implementing a 'Learn-to-Earn' model, which has attracted over 500,000 unique users receiving crypto rewards.",
+        "Played a pivotal role in designing OpenGuild, resulting in community engagement yield of over 900%+ and securing a $1 million commitment to platform assets.",
+        "Contributed to the design of 101.xyz, modernizing the online course space and implementing an interactive learning model, which has attracted over 500,000 unique active users.",
       ],
     },
     {
@@ -67,12 +67,12 @@ const Experience = () => {
     },
     {
       company: "Agrific",
-      location: "Lagos, Nigeria",
+      location: "London, United Kingdom",
       position: "Product Designer",
       period: "Mar. 2020 - Mar. 2021",
       achievements: [
-        "Led the design and ideation of the product, facilitating agro-commodity trading in Africa and giving global market access for smallholder farmers and agro-businesses, improving their income by at least 45%.",
-        "Worked closely and collaborated with stakeholders to ensure premium quality for a successful product launch, resulting in onboarding over 10,000 farmers and over 30,000 registered buyers in the first 3 months.",
+        "Led the design and ideation of the product, facilitating global trade and giving international market access for agricultural producers and businesses, improving their income by at least 45%.",
+        "Worked closely and collaborated with stakeholders to ensure premium quality for a successful product launch, resulting in onboarding over 10,000 producers and over 30,000 registered buyers in the first 3 months.",
         "Championed the branding and visual design direction, creating branding assets, reusable components, pitch decks, and overall design assets.",
       ],
     },

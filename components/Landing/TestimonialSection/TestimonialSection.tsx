@@ -142,7 +142,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Godstime Kings</p>
+                    <p className="text-xl max-md:text-base">Alex Morgan</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -168,7 +168,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Chisom Obi</p>
+                    <p className="text-xl max-md:text-base">Sarah Jenkins</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -180,8 +180,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  OMG! This app is so amazing, can&lsquo;t believe a day would come that a fintech app would make crypto
-                  easy to use without complicated features
+                  OMG! This app is so amazing, can&lsquo;t believe how easy and seamless it makes global money
+                  management without complicated steps
                 </motion.p>
               </motion.div>
 
@@ -195,7 +195,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Duru Dumebi</p>
+                    <p className="text-xl max-md:text-base">David Chen</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -207,8 +207,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, trade my
-                  crypro to fiat with ease
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, send money
+                  to family, and pay bills with ease
                 </motion.p>
               </motion.div>
 
@@ -222,7 +222,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Godstime Kings</p>
+                    <p className="text-xl max-md:text-base">Alex Morgan</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -248,7 +248,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Chisom Obi</p>
+                    <p className="text-xl max-md:text-base">Sarah Jenkins</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -260,8 +260,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  OMG! This app is so amazing, can&lsquo;t believe a day would come that a fintech app would make crypto
-                  easy to use without complicated features
+                  OMG! This app is so amazing, can&lsquo;t believe how easy and seamless it makes global money
+                  management without complicated steps
                 </motion.p>
               </motion.div>
 
@@ -275,7 +275,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Duru Dumebi</p>
+                    <p className="text-xl max-md:text-base">David Chen</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -287,8 +287,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, trade my
-                  crypro to fiat with ease
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, send money
+                  to family, and pay bills with ease
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -310,7 +310,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Godstime Kings</p>
+                    <p className="text-xl max-md:text-base">Alex Morgan</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -336,7 +336,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Chisom Obi</p>
+                    <p className="text-xl max-md:text-base">Sarah Jenkins</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -348,8 +348,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  OMG! This app is so amazing, can&lsquo;t believe a day would come that a fintech app would make crypto
-                  easy to use without complicated features
+                  OMG! This app is so amazing, can&lsquo;t believe how easy and seamless it makes global money
+                  management without complicated steps
                 </motion.p>
               </motion.div>
 
@@ -363,7 +363,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Duru Dumebi</p>
+                    <p className="text-xl max-md:text-base">David Chen</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -375,8 +375,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, trade my
-                  crypro to fiat with ease
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, send money
+                  to family, and pay bills with ease
                 </motion.p>
               </motion.div>
 
@@ -390,7 +390,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Godstime Kings</p>
+                    <p className="text-xl max-md:text-base">Alex Morgan</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -416,7 +416,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Chisom Obi</p>
+                    <p className="text-xl max-md:text-base">Sarah Jenkins</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -428,8 +428,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  OMG! This app is so amazing, can&lsquo;t believe a day would come that a fintech app would make crypto
-                  easy to use without complicated features
+                  OMG! This app is so amazing, can&lsquo;t believe how easy and seamless it makes global money
+                  management without complicated steps
                 </motion.p>
               </motion.div>
 
@@ -443,7 +443,7 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                     className="rounded-full max-md:h-10 max-md:w-10"
                   />
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl max-md:text-base">Duru Dumebi</p>
+                    <p className="text-xl max-md:text-base">David Chen</p>
                     <div className="flex gap-1">
                       <StarIcon />
                       <StarIcon />
@@ -455,8 +455,8 @@ export default function TestimonialSection({ currentTheme }: TestimonialSectionP
                 </div>
 
                 <motion.p className="smaller-text mt-2 max-md:text-sm" variants={fadeInUp}>
-                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, trade my
-                  crypro to fiat with ease
+                  As a busy college student, UltraApp has been a lifesaver. I can easily manage my finances, send money
+                  to family, and pay bills with ease
                 </motion.p>
               </motion.div>
             </motion.div>

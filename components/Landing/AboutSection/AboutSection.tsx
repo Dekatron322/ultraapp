@@ -69,8 +69,8 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
               Used and trusted by a community of <span className="crypto-text">millions</span>
             </motion.h2>
             <motion.p className="small-text mt-2 dark:text-gray-300 max-md:text-center" variants={fadeInUp}>
-              UltraApp is changing the DeFi scene Globally with 15,000+ users. Our platform makes cryptocurrency easy
-              and practical for daily use.
+              UltraApp is transforming digital finance globally with 15,000+ users. Our platform makes modern money
+              management simple, fast, and secure for everyday use.
             </motion.p>
 
             <motion.div
@@ -126,7 +126,7 @@ export default function AboutSection({ currentTheme }: AboutSectionProps) {
             <img src="/icons/wallet.svg" alt="Download" />
           )}
           <h3 className="text-5xl font-semibold max-sm:text-2xl">14K</h3>
-          <p>Wallets Created</p>
+          <p>Accounts Created</p>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ export default function FAQSection({ currentTheme }: FAQSectionProps) {
       id: 1,
       question: "How do I get started with the UltraApp?",
       answer:
-        "Download the app from the App Store or Google Play, create your account, and follow the onboarding process to set up your portfolio and preferences.",
+        "Download the app from the App Store or Google Play, create your account, and follow the simple onboarding process to set up your profile and preferences.",
     },
     {
       id: 2,
@@ -31,21 +31,21 @@ export default function FAQSection({ currentTheme }: FAQSectionProps) {
     },
     {
       id: 3,
-      question: "What cryptocurrencies does UltraApp support?",
+      question: "What currencies and payment methods does UltraApp support?",
       answer:
-        "We support all major cryptocurrencies including Bitcoin, Ethereum, Solana, and hundreds of altcoins. Our platform continuously adds new tokens as they gain market traction.",
+        "We support major global currencies along with bank transfers, debit cards, and instant payouts. Our platform continuously adds support for new regions and payment rails.",
     },
     {
       id: 4,
       question: "How real-time are the analytics?",
       answer:
-        "Our analytics update in real-time with market data streaming directly from multiple exchanges. You'll see price movements and portfolio changes as they happen.",
+        "Our analytics update in real-time with live data streaming directly from our financial and banking partners. You'll see account movements and balances update instantly.",
     },
     {
       id: 5,
-      question: "Can I track multiple portfolios?",
+      question: "Can I manage multiple accounts or wallets?",
       answer:
-        "Yes, UltraApp allows you to create and manage multiple portfolios, making it easy to separate personal investments from business or experimental trading.",
+        "Yes, UltraApp allows you to create and manage multi-currency accounts, making it easy to separate personal expenses, business funds, and global transfers.",
     },
     {
       id: 6,

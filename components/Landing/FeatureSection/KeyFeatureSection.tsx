@@ -20,7 +20,7 @@ const DownloadAppModal: React.FC<DownloadAppModalProps> = ({ isOpen, onClose }) 
   const smartDownloadUrl = "https://qr-code-sand-seven.vercel.app/"
 
   // Direct URLs for the buttons
-  const appStoreUrl = "https://apps.apple.com/ng/app/ultra-app/id6450269232"
+  const appStoreUrl = "https://apps.apple.com/app/ultra-app/id6450269232"
   const playStoreUrl = "https://play.google.com/store/apps/details?id=com.ahmadhabib.ultraappfrontend"
 
   return (
@@ -183,9 +183,9 @@ const KeyFeatureSection = ({ currentTheme }: FeatureSectionProps) => {
           ) : (
             <img src="/icons/central-wallet.svg" alt="Download" className="size-12" />
           )}
-          <h3 className="text-4xl font-medium max-md:text-3xl">Personalized Fiat Wallets</h3>
+          <h3 className="text-4xl font-medium max-md:text-3xl">Multi-Currency Accounts</h3>
           <p className="smaller-text mb-10">
-            Unlock immediate access to crucial financial data with our advanced real- time analytics, allowing you to
+            Unlock immediate access to crucial financial data with our advanced real-time analytics, allowing you to
             stay ahead of the curve. Whether it&apos;s tracking cash flow, monitoring expenses, or forecasting trends,
             our platform provides you with the insights you need—instantly and effortlessly.
           </p>
@@ -209,11 +209,10 @@ const KeyFeatureSection = ({ currentTheme }: FeatureSectionProps) => {
           ) : (
             <img src="/icons/ramping.svg" alt="Download" className="size-12" />
           )}
-          <h3 className="text-4xl font-medium max-md:text-3xl">Instant On/Off Ramping</h3>
+          <h3 className="text-4xl font-medium max-md:text-3xl">Instant Currency Exchange</h3>
           <p className="smaller-text mb-10">
-            Bridge the gap between traditional and digital finance in a single click. Our seamless on/off ramping
-            service lets you convert cash to crypto and back again instantly, ensuring your assets are always accessible
-            and ready to use whenever you need them.
+            Bridge global currencies in a single click. Our seamless exchange service lets you convert between multiple
+            currencies instantly, ensuring your funds are always accessible and ready to use whenever you need them.
           </p>
         </div>
         <div className="">
@@ -231,16 +230,15 @@ const KeyFeatureSection = ({ currentTheme }: FeatureSectionProps) => {
         {/* Card 3 */}
         <div className="flex flex-col gap-4 max-md:pt-16">
           {currentTheme === "dark" ? (
-            <img src="/icons/crypto-dark.svg" alt="Download" className="size-12" />
+            <img src="/icons/currency-dark.svg" alt="Cross-Border Payments" className="size-12" />
           ) : (
-            <img src="/icons/crypto.svg" alt="Download" className="size-12" />
+            <img src="/icons/currency.svg" alt="Cross-Border Payments" className="size-12" />
           )}
           <h3 className="text-4xl font-medium max-md:text-3xl">Cross-Border Payments</h3>
           <p className="smaller-text mb-10">
-            Experience the freedom to send and receive cryptocurrency from anywhere in the world. Our platform ensures
-            that your transactions are settled instantly in your local currency, making it easier than ever to manage
-            your digital assets. Enjoy seamless transfers that connect you globally while providing the convenience of
-            local currency settlements.
+            Experience the freedom to send and receive money anywhere in the world. Our platform ensures that your
+            transactions are settled instantly in your local currency, making global transfers and money management
+            easier and faster than ever before.
           </p>
         </div>
         <div className="">
@@ -262,21 +260,16 @@ const KeyFeatureSection = ({ currentTheme }: FeatureSectionProps) => {
           ) : (
             <img src="/icons/support.svg" alt="Download" className="size-12" />
           )}
-          <h3 className="text-4xl font-medium max-md:text-3xl">20+ Cryptocurrency Support</h3>
+          <h3 className="text-4xl font-medium max-md:text-3xl">Global Currency Support</h3>
           <p className="smaller-text mb-10">
-            Unlock immediate access to crucial financial data with our advanced real- time analytics, allowing you to
-            stay ahead of the curve. Whether it&apos;s tracking cash flow, monitoring expenses, or forecasting trends,
-            our platform provides you with the insights you need—instantly and effortlessly.
+            Unlock immediate access to seamless multi-currency support and real-time transaction updates, giving you
+            total clarity and control over your global funds anytime, anywhere.
           </p>
         </div>
         <div className="">
           <div className="relative z-0 mt-auto flex w-full items-end justify-center">
             <motion.div>
-              {currentTheme === "dark" ? (
-                <img src="/Margin4-dark.png" alt="Download" className="relative z-0 w-[444px]" />
-              ) : (
-                <img src="/Margin4.png" alt="Download" className="relative z-0 w-[444px]" />
-              )}
+              <img src="/currencies-clean.png" alt="Multi-Currency Support" className="relative z-0 w-[444px] rounded-xl" />
             </motion.div>
           </div>
         </div>

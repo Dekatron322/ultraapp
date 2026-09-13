@@ -156,11 +156,7 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
                 <strong>&quot;Agreement&quot;</strong> refers to these Terms and Conditions.
               </li>
               <li>
-                <strong>&quot;BVN&quot;</strong> means Bank Verification Number used by the banking industry in Nigeria
-                and issued by a CBN-approved financial institution.
-              </li>
-              <li>
-                <strong>&quot;CBN&quot;</strong> means the Central Bank of Nigeria.
+                <strong>&quot;KYC&quot;</strong> means Know Your Customer identity verification processes used to verify customer identity in accordance with regulatory standards.
               </li>
               <li>
                 <strong>&quot;Content&quot;</strong> means all information whether textual, visual, audio or otherwise,
@@ -236,7 +232,7 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
                 <strong>Others:</strong> You may not submit or receive a Transaction on behalf of any other person.
               </li>
               <li>
-                <strong>Residence within Nigeria:</strong> The Service is available to residents of Nigeria only.
+                <strong>Authorized Jurisdictions:</strong> The Service is available to users in supported jurisdictions and regions where permitted by applicable law.
               </li>
               <li>
                 <strong>Offer and Acceptance:</strong> If you submit a Transaction, you are requesting that we process
@@ -264,7 +260,7 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
                 Account through the Service you declare that you are 18 years or above.
               </li>
               <li>
-                You must provide all information as may be requested by us, such as your name, BVN, residential address,
+                You must provide all information as may be requested by us, such as your name, government-issued ID / identification number, residential address,
                 email address, phone number, next of kin details, business details and such other information as we may
                 request from time to time (collectively, &quot;User Information&quot;).
               </li>
@@ -378,7 +374,7 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
                   <li>
                     payment for multi-level marketing, pyramid selling or ponzi schemes, matrix programmes or other
                     &quot;get rich quick&quot; schemes or high yield investment programmes and for such activities not
-                    listed here but are defined as illegal by the CBN and laws of the Federal Republic of Nigeria.
+                    listed here but defined as illegal by applicable financial regulations and governing laws.
                   </li>
                 </ul>
               </li>
@@ -454,7 +450,7 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
                 erroneous or fraudulent in nature.
               </li>
               <li>
-                Ultra advises its users not to give their financial details, such as BVN (Bank Verification Numbers),
+                Ultra advises its users not to give their financial details, such as identification numbers, passwords,
                 OTP (One Time Password) and other sensitive financial information to anyone or third parties. Ultra will
                 not be liable if such details are compromised.
               </li>
@@ -497,7 +493,7 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
                 images, as well as all other Ultra&apos;s copyrights, trademarks, logos, and product and service names
                 are owned exclusively by Ultra Multipurpose Technology Limited (the &quot;Ultra Intellectual
                 Property&quot;) and are protected by Copyright and Trademark Laws and various other Intellectual
-                Property Rights and Unfair Competition Laws of the Nigerian, foreign jurisdictions, and international
+                Property Rights and Unfair Competition Laws of domestic, foreign jurisdictions, and international
                 conventions.
               </li>
               <li>
@@ -527,21 +523,17 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
             </motion.h3>
             <ul className="smaller-text mb-4 list-disc space-y-2 pl-6">
               <li>
-                This Agreement shall be governed by and construed in accordance with the Laws of the Federal Republic of
-                Nigeria. Any controversy, dispute, or claim arising out of or relating to the Service or Agreement (a
-                &quot;Claim&quot;) shall be governed by and construed in accordance with Laws of the Federal Republic of
-                Nigeria.
+                This Agreement shall be governed by and construed in accordance with applicable laws. Any controversy, dispute, or claim arising out of or relating to the Service or Agreement (a
+                &quot;Claim&quot;) shall be governed by and construed in accordance with applicable laws.
               </li>
               <li>
                 The Parties shall in good faith make efforts to resolve any dispute, controversy or claim of any nature
                 whatsoever arising out of or in relation to or in connection with these Terms and Conditions.
               </li>
               <li>
-                In the event that parties are unable to resolve dispute amicably, either of the Parties may the Lagos
-                Court of Arbitration and demand Arbitration following the Guidelines of the Court of Arbitration and the
-                Arbitration and Mediation Act, 2023.
+                In the event that parties are unable to resolve dispute amicably, either of the Parties may submit the dispute to binding commercial arbitration in accordance with standard arbitration rules.
               </li>
-              <li>The seat of arbitration shall be Lagos, Nigeria.</li>
+              <li>The seat of arbitration shall be mutually agreed upon or determined by the arbitral body.</li>
               <li>The language to be used in the arbitral proceeding shall be the English Language.</li>
               <li>
                 Judgement on the Award may be entered in any court with competent jurisdiction and shall be binding on
@@ -550,7 +542,7 @@ const TermsSection = ({ currentTheme }: TermsSectionProps) => {
               <li>The cost of Arbitration shall be covered individually by each of the Parties.</li>
               <li>
                 Nothing in the Agreement and within this Dispute Resolution Clause shall preclude any of the Parties
-                from seeking interim reliefs from any Court with competent jurisdiction within Nigeria.
+                from seeking interim reliefs from any Court with competent jurisdiction.
               </li>
             </ul>
           </div>

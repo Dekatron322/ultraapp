@@ -63,7 +63,7 @@ export default function DownloadSection({ currentTheme }: DownloadSectionProps) 
                 className="text-[46px] font-bold leading-[1.2] max-md:px-4 max-md:text-center max-sm:text-3xl"
                 variants={fadeInUp}
               >
-                UltraApp makes crypto <span className="crypto-text">simple.</span>
+                UltraApp makes finance <span className="crypto-text">simple.</span>
               </motion.h2>
 
               <motion.div
@@ -188,9 +188,9 @@ function PhoneImages({
         {/* Center Phone (Main) */}
         <motion.div className="z-20" initial="hidden" variants={centerPhoneVariants}>
           <motion.img
-            src="/iphone.png"
-            alt="UltraApp main screen"
-            className="w-full drop-shadow-2xl"
+            src="/hero-app.png"
+            alt="UltraApp Global Finance Interface"
+            className="w-full max-w-[400px] rounded-2xl max-md:max-w-[300px]"
             initial="initial"
             transition={{ delay: 0.5 }}
           />

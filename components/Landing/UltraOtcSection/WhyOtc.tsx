@@ -1,31 +1,15 @@
 "use client"
 import { motion } from "framer-motion"
-import Link from "next/link"
-import { useTheme } from "next-themes"
-import AppleIcon from "public/icons/Apple"
-import GooglePlayIcon from "public/icons/GooglePlay"
 import LogoIcon from "public/icons/logo-icon"
 import LogoIconDark from "public/icons/logo-icon-dark"
-import { useState } from "react"
 import Image from "next/image"
-import DownloadAppModal from "components/DownloadAppModal"
 
-interface ComingSoonProps {
+interface WhyOtcProps {
   currentTheme: string | undefined
 }
 
-export default function WhyOtc({ currentTheme }: ComingSoonProps) {
-  const [isPhonesHovered, setIsPhonesHovered] = useState(false)
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
-
-  const buttonVariants = {
-    initial: { scale: 1 },
-    hover: {
-      scale: 1.02,
-      transition: { type: "spring", stiffness: 300, damping: 15 },
-    },
-    tap: { scale: 0.98 },
-  }
+export default function WhyOtc({ currentTheme }: WhyOtcProps) {
+  const isDark = currentTheme === "dark"
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -39,263 +23,181 @@ export default function WhyOtc({ currentTheme }: ComingSoonProps) {
     },
   }
 
-  const handleDownloadClick = () => {
-    setIsDownloadModalOpen(true)
-  }
-
-  return (
-    <div className="flex w-full max-w-[1240px] flex-col max-sm:p-4 md:my-24">
-      <DownloadAppModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
-      <div className="flex ">
-        <div className="flex w-full items-start gap-12 max-md:flex-col max-md:px-0 ">
-          {/* Text Content */}
-          <motion.div className="flex  flex-col" initial="hidden" animate="visible" variants={fadeInUp}>
-            <motion.div
-              variants={buttonVariants}
-              initial="initial"
-              whileHover="hover"
-              whileTap="tap"
-              className="max-sm:w-full"
-            >
-              <div className="email relative mb-4 flex h-10 w-fit cursor-pointer items-center gap-2 rounded-full px-3 py-2 transition-all duration-500 max-md:mx-auto max-md:justify-center max-sm:text-xs ">
-                {currentTheme === "dark" ? <LogoIconDark className="size-4" /> : <LogoIcon className="size-4" />}
-                Ultra OTC
-              </div>
-            </motion.div>
-            <motion.h2
-              className="text-[46px] font-bold leading-[1.2] max-sm:text-center max-sm:text-3xl"
-              variants={fadeInUp}
-            >
-              Why <span className="crypto-text">Ultra OTC</span>
-            </motion.h2>
-            <div className=" mt-10 grid  gap-6 md:grid-cols-2">
-              <div className="features-cards flex-col rounded-lg">
-                <Image src="/icons/anonymous.svg" alt="Lending" width={40} height={40} />
-                <motion.p className="mt-2 text-xl" variants={fadeInUp}>
-                  Absolute Discretion
-                </motion.p>
-                <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Trade large volumes with zero visibility—your intentions remain private, and execution is handled with
-                  care.
-                </motion.p>
-              </div>
-
-              <div className="features-cards flex-col rounded-lg">
-                <Image src="/icons/cash-02.svg" alt="Stake" width={40} height={40} />
-                <motion.p className="small-text mt-2 text-xl" variants={fadeInUp}>
-                  Competitive Rates
-                </motion.p>
-                <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Get market-leading pricing with no hidden fees or slippage, even at scale.
-                </motion.p>
-              </div>
-              <div className="features-cards  flex-col rounded-lg">
-                <Image src="/icons/globe-02.svg" alt="Debit" width={40} height={40} />
-                <motion.p className="small-text mt-2 text-lg dark:text-gray-300" variants={fadeInUp}>
-                  Global Coverage
-                </motion.p>
-                <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Execute trades from anywhere in the world. Our network removes borders—your liquidity knows no limits.
-                </motion.p>
-              </div>
-              <div className="features-cards flex-col rounded-lg">
-                <Image src="/icons/zap.svg" alt="More" width={40} height={40} />
-                <motion.p className="small-text mt-2 text-lg dark:text-gray-300" variants={fadeInUp}>
-                  Lightning Fast Settlement
-                </motion.p>
-                <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Access instant delivery to your preferred wallet or local bank account, every day.
-                </motion.p>
-              </div>
-              <div className="features-cards flex-col rounded-lg">
-                <Image src="/icons/user-switch.svg" alt="More" width={40} height={40} />
-                <motion.p className="small-text mt-2 text-lg dark:text-gray-300" variants={fadeInUp}>
-                  Personalized Relationship Desk
-                </motion.p>
-                <motion.p className="smaller-text mt-2" variants={fadeInUp}>
-                  Access a dedicated Ultra OTC expert for every trade. Receive bespoke quotes, guidance, and timely
-                  settlements tailored to your needs.
-                </motion.p>
-              </div>
-            </div>
-          </motion.div>
-          {currentTheme === "dark" ? (
-            <motion.img src="/Container2.png" alt="UltraApp main screen" className="h-auto self-start md:w-[390px]" />
-          ) : (
-            <motion.img src="/Container.png" alt="UltraApp main screen" className="h-auto self-start md:w-[390px]" />
-          )}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function PhoneImages({
-  currentTheme,
-  isPhonesHovered,
-  setIsPhonesHovered,
-}: {
-  currentTheme: string | undefined
-  isPhonesHovered: boolean
-  setIsPhonesHovered: (hovered: boolean) => void
-}) {
-  const floatAnimation = {
-    initial: { y: 0 },
-    float: {
-      y: [-5, 5, -5],
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
       transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut",
+        staggerChildren: 0.1,
       },
     },
   }
 
-  const leftPhoneVariants = {
-    hidden: { opacity: 1, y: 30 },
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      rotate: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-    hover: {
-      rotate: 14,
-      y: 20,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  }
-
-  const centerPhoneVariants = {
-    hidden: { opacity: 1, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotate: 0,
-      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
-    },
-    hover: {
-      rotate: 2,
-      y: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  }
-
-  const rightPhoneVariants = {
-    hidden: { opacity: 1, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotate: 0,
-      transition: { duration: 0.6, ease: "easeOut", delay: 0.4 },
-    },
-    hover: {
-      rotate: -10,
-      y: -75,
-      transition: { duration: 0.3, ease: "easeOut" },
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
     },
   }
 
   return (
-    <motion.div
-      className="img-card-bg flex h-[400px] w-full items-center justify-center overflow-hidden rounded-2xl p-4"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
-    >
+    <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center max-sm:p-4 md:my-28">
+      {/* Header */}
       <motion.div
-        className="relative flex items-end justify-center -space-x-24"
-        onHoverStart={() => setIsPhonesHovered(true)}
-        onHoverEnd={() => setIsPhonesHovered(false)}
+        className="flex flex-col items-center text-center"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
       >
-        {/* Left Phone */}
-        <motion.div
-          className="z-10"
-          initial="hidden"
-          animate={isPhonesHovered ? "hover" : "visible"}
-          variants={leftPhoneVariants}
-        >
-          {currentTheme === "dark" ? (
-            <motion.img
-              src="/png2-dark.png"
-              alt="UltraApp feature 1"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-            />
-          ) : (
-            <motion.img
-              src="/png2.png"
-              alt="UltraApp feature 1"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-            />
-          )}
+        <motion.div variants={fadeInUp}>
+          <div className="email relative mb-4 flex h-10 w-fit cursor-pointer items-center justify-center gap-2 rounded-full px-4 py-2 transition-all duration-500 max-sm:text-xs">
+            {isDark ? <LogoIconDark className="size-4" /> : <LogoIcon className="size-4" />}
+            <span>Ultra OTC</span>
+          </div>
         </motion.div>
 
-        {/* Center Phone (Main) */}
-        <motion.div
-          className="z-20"
-          initial="hidden"
-          animate={isPhonesHovered ? "hover" : "visible"}
-          variants={centerPhoneVariants}
+        <motion.h2
+          className={`text-[46px] font-bold leading-[1.2] max-sm:text-3xl ${isDark ? "text-white" : "text-gray-900"}`}
+          variants={fadeInUp}
         >
-          {currentTheme === "dark" ? (
-            <motion.img
-              src="/png1-dark.png"
-              alt="UltraApp main screen"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 0.5 }}
-            />
-          ) : (
-            <motion.img
-              src="/png1.png"
-              alt="UltraApp main screen"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 0.5 }}
-            />
-          )}
+          Why <span className="crypto-text">Ultra OTC</span>
+        </motion.h2>
+
+        <motion.p
+          className={`mt-4 max-w-2xl text-base md:text-lg ${isDark ? "text-gray-300" : "text-gray-600"}`}
+          variants={fadeInUp}
+        >
+          Move institutional volumes with total privacy, zero slippage, and dedicated relationship execution tailored to your needs.
+        </motion.p>
+      </motion.div>
+
+      {/* Feature Cards Grid */}
+      <motion.div
+        className="mt-12 grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Card 1: Absolute Discretion */}
+        <motion.div
+          className={`flex flex-col justify-between rounded-2xl border p-6 md:p-8 transition-all duration-300 ${isDark
+              ? "border-gray-800 bg-[#0c1322] hover:border-gray-700 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+              : "border-gray-200 bg-white hover:border-gray-300 shadow-sm hover:shadow-md"
+            }`}
+          variants={cardVariants}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        >
+          <div>
+            <div
+              className={`mb-5 flex size-12 items-center justify-center rounded-xl transition-colors ${isDark ? "border border-gray-700/60 bg-gray-800/80" : "border border-gray-200/80 bg-gray-100"
+                }`}
+            >
+              <Image src="/icons/anonymous.svg" alt="Discretion" width={28} height={28} />
+            </div>
+            <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Absolute Discretion</h3>
+            <p className={`mt-3 text-sm md:text-base leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Trade large volumes with zero visibility—your intentions remain private, and execution is handled with complete confidentiality.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Right Phone */}
+        {/* Card 2: Competitive Rates */}
         <motion.div
-          className="z-10"
-          initial="hidden"
-          animate={isPhonesHovered ? "hover" : "visible"}
-          variants={rightPhoneVariants}
+          className={`flex flex-col justify-between rounded-2xl border p-6 md:p-8 transition-all duration-300 ${isDark
+              ? "border-gray-800 bg-[#0c1322] hover:border-gray-700 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+              : "border-gray-200 bg-white hover:border-gray-300 shadow-sm hover:shadow-md"
+            }`}
+          variants={cardVariants}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
         >
-          {currentTheme === "dark" ? (
-            <motion.img
-              src="/png3-dark.png"
-              alt="UltraApp feature 2"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 1 }}
-            />
-          ) : (
-            <motion.img
-              src="/png3.png"
-              alt="UltraApp feature 2"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 1 }}
-            />
-          )}
+          <div>
+            <div
+              className={`mb-5 flex size-12 items-center justify-center rounded-xl transition-colors ${isDark ? "border border-gray-700/60 bg-gray-800/80" : "border border-gray-200/80 bg-gray-100"
+                }`}
+            >
+              <Image src="/icons/cash-02.svg" alt="Competitive Rates" width={28} height={28} />
+            </div>
+            <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Competitive Rates</h3>
+            <p className={`mt-3 text-sm md:text-base leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Get market-leading pricing with no hidden fees or slippage, providing transparent and cost-effective execution at scale.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Card 3: Global Coverage */}
+        <motion.div
+          className={`flex flex-col justify-between rounded-2xl border p-6 md:p-8 transition-all duration-300 ${isDark
+              ? "border-gray-800 bg-[#0c1322] hover:border-gray-700 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+              : "border-gray-200 bg-white hover:border-gray-300 shadow-sm hover:shadow-md"
+            }`}
+          variants={cardVariants}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        >
+          <div>
+            <div
+              className={`mb-5 flex size-12 items-center justify-center rounded-xl transition-colors ${isDark ? "border border-gray-700/60 bg-gray-800/80" : "border border-gray-200/80 bg-gray-100"
+                }`}
+            >
+              <Image src="/icons/globe-02.svg" alt="Global Coverage" width={28} height={28} />
+            </div>
+            <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Global Coverage</h3>
+            <p className={`mt-3 text-sm md:text-base leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Execute transactions from anywhere in the world. Our international liquidity network removes borders and geographical limits.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Card 4: Lightning Fast Settlement */}
+        <motion.div
+          className={`flex flex-col justify-between rounded-2xl border p-6 md:p-8 transition-all duration-300 ${isDark
+              ? "border-gray-800 bg-[#0c1322] hover:border-gray-700 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+              : "border-gray-200 bg-white hover:border-gray-300 shadow-sm hover:shadow-md"
+            }`}
+          variants={cardVariants}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        >
+          <div>
+            <div
+              className={`mb-5 flex size-12 items-center justify-center rounded-xl transition-colors ${isDark ? "border border-gray-700/60 bg-gray-800/80" : "border border-gray-200/80 bg-gray-100"
+                }`}
+            >
+              <Image src="/icons/zap.svg" alt="Fast Settlement" width={28} height={28} />
+            </div>
+            <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Lightning Fast Settlement</h3>
+            <p className={`mt-3 text-sm md:text-base leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Access instant delivery to your preferred account or local bank account, operating seamlessly every single day.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Card 5: Personalized Relationship Desk */}
+        <motion.div
+          className={`flex flex-col justify-between rounded-2xl border p-6 md:p-8 transition-all duration-300 md:col-span-2 ${isDark
+              ? "border-gray-800 bg-[#0c1322] hover:border-gray-700 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+              : "border-gray-200 bg-white hover:border-gray-300 shadow-sm hover:shadow-md"
+            }`}
+          variants={cardVariants}
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        >
+          <div>
+            <div
+              className={`mb-5 flex size-12 items-center justify-center rounded-xl transition-colors ${isDark ? "border border-gray-700/60 bg-gray-800/80" : "border border-gray-200/80 bg-gray-100"
+                }`}
+            >
+              <Image src="/icons/user-switch.svg" alt="Relationship Desk" width={28} height={28} />
+            </div>
+            <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Personalized Relationship Desk</h3>
+            <p className={`mt-3 text-sm md:text-base leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Access a dedicated Ultra OTC specialist for every transaction. Receive bespoke quotes, direct concierge support, and structured settlements tailored specifically to your financial objectives.
+            </p>
+          </div>
         </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   )
 }

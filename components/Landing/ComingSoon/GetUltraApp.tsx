@@ -66,7 +66,7 @@ export default function GetUltraApp({ currentTheme }: ComingSoonProps) {
               className="text-[46px] font-bold leading-[1.2] max-sm:text-center max-sm:text-3xl "
               variants={fadeInUp}
             >
-              Ready to transform your crypto <span className="crypto-text">journey?</span>
+              Ready to transform your financial <span className="crypto-text">journey?</span>
             </motion.h2>
             <p className="mt-6 max-sm:text-center max-sm:text-sm">
               Unlock immediate access to crucial financial data with our advanced real- time analytics, allowing you to

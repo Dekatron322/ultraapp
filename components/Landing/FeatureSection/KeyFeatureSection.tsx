@@ -1,30 +1,15 @@
 "use client"
-import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { useTheme } from "next-themes"
 import Image from "next/image"
-import LogoIcon from "public/icons/logo-icon"
-import LogoIconDark from "public/icons/logo-icon-dark"
+import { useTheme } from "next-themes"
+import React, { useEffect, useState } from "react"
+import { FiActivity, FiCheck, FiGlobe, FiZap } from "react-icons/fi"
+import { RiExchangeDollarLine } from "react-icons/ri"
+import { TbBuildingBank, TbWorldUpload } from "react-icons/tb"
 import AppleIcon from "public/icons/Apple"
 import GooglePlayIcon from "public/icons/GooglePlay"
-import { 
-  FiArrowUpRight, 
-  FiArrowDownLeft, 
-  FiRepeat, 
-  FiShield, 
-  FiCheck, 
-  FiGlobe, 
-  FiTrendingUp, 
-  FiZap, 
-  FiLock,
-  FiSend,
-  FiClock,
-  FiActivity,
-  FiChevronRight
-} from "react-icons/fi"
-import { TbBuildingBank, TbWorldUpload } from "react-icons/tb"
-import { RiExchangeDollarLine } from "react-icons/ri"
-import { HiOutlineSparkles } from "react-icons/hi"
+import LogoIcon from "public/icons/logo-icon"
+import LogoIconDark from "public/icons/logo-icon-dark"
 
 interface DownloadAppModalProps {
   isOpen: boolean

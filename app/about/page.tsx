@@ -34,7 +34,7 @@ export default function Dashboard() {
 
         {/* <TeamSection currentTheme={currentTheme} /> */}
 
-        <GetUltraApp currentTheme={currentTheme} />
+        {/* <GetUltraApp currentTheme={currentTheme} /> */}
       </section>
       <Footer />
     </>

@@ -25,7 +25,7 @@ export default function Dashboard() {
 
         <HeroSection mounted={mounted} currentTheme={currentTheme} />
         <ContactSection currentTheme={currentTheme} />
-        <GetUltraApp currentTheme={currentTheme} />
+        {/* <GetUltraApp currentTheme={currentTheme} /> */}
       </section>
       <Footer />
     </>

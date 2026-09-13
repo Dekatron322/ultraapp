@@ -12,7 +12,8 @@ body {
   background-color: #ffffff;
   color: #1e1e1e;
   font-family:
-    var(--font-gilroy),
+    var(--font-manrope),
+    "Manrope",
     system-ui,
     -apple-system,
     Segoe UI,
@@ -803,7 +804,7 @@ body {
 }
 
 .clash-font {
-  font-family: "Clash Display", sans-serif;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
 }
 
 .dropdown-menu {
@@ -825,7 +826,7 @@ body {
 }
 
 .clash {
-  font-family: var(--font-gilroy), sans-serif;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
 }
 
 .dropdown-menu li {

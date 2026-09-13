@@ -240,64 +240,9 @@ function PhoneImages({
         </motion.div>
 
         {/* Center Phone (Main) */}
-        <motion.div
-          className="z-20"
-          initial="hidden"
-          animate={isPhonesHovered ? "hover" : "visible"}
-          variants={centerPhoneVariants}
-        >
-          {currentTheme === "dark" ? (
-            <motion.img
-              src="/png1-dark.png"
-              alt="UltraApp main screen"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 0.5 }}
-            />
-          ) : (
-            <motion.img
-              src="/png1.png"
-              alt="UltraApp main screen"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 0.5 }}
-            />
-          )}
-        </motion.div>
 
-        {/* Right Phone */}
-        <motion.div
-          className="z-10"
-          initial="hidden"
-          animate={isPhonesHovered ? "hover" : "visible"}
-          variants={rightPhoneVariants}
-        >
-          {currentTheme === "dark" ? (
-            <motion.img
-              src="/png3-dark.png"
-              alt="UltraApp feature 2"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 1 }}
-            />
-          ) : (
-            <motion.img
-              src="/png3.png"
-              alt="UltraApp feature 2"
-              className="w-full drop-shadow-2xl"
-              initial="initial"
-              animate={isPhonesHovered ? "initial" : "float"}
-              variants={floatAnimation}
-              transition={{ delay: 1 }}
-            />
-          )}
-        </motion.div>
+
+
       </motion.div>
     </motion.div>
   )
